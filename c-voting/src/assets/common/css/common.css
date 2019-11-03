@@ -77,3 +77,16 @@ sub {font-weight:normal; vertical-align:middle;}
 img {max-width:100%; vertical-align:top;}
 input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {-webkit-appearance:none; margin:0;}
 textarea::-webkit-input-placeholder {color:#c2c2c2;}
+
+.subWrap01 {position:relative; height:100%; min-height:450px; padding-top:58px; background:#fff;}
+.webcontainer {position:relative; max-width:530px; margin:0 auto;}
+.topfix {position:absolute; left:0; top:350px; right:0; background:#fff;  border-bottom:1.5px solid #cdced3; z-index:100;}
+.tab01 {position:relative; overflow:hidden;}
+.tab01 > div {height:41px; margin:0 15px; overflow-x:auto; overflow-y:hidden;}
+.tab01 ul {display:table; width:100%; background:#fff;}
+.tab01 li {display:table-cell;}
+.tab01 button {position:relative; width:100%; min-width:4em; height:41px; padding:0 10px; font-size:.875em; color:#8e8e93;}
+.tab01 button > span {position:relative; display:inline-block; height:39px; padding-top:2px; line-height:39px; white-space:nowrap;}
+.tab01 .on button {color:#000;}
+.tab01 .on button > span:before {content:""; position:absolute; left:50%; top:0; width:100%; min-width:2em; height:39px; border-bottom:2px solid #1971c2; -webkit-transform:translateX(-50%); transform:translateX(-50%);}
+.tab01 .item3 li {width:33.3333%;}

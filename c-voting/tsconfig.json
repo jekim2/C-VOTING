@@ -1,7 +1,18 @@
 {
+  "version": "0.1.0",
+  "command": "Chrome",
+  "windows": {
+    "command": "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"
+  },
+  "isShellCommand": true,
+  "args": [
+    "${file}"
+  ],
+  "showOutput": "silent",
+  "problemMatcher": "$tsc",
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",
+    "outDir": "./contents/out-tsc",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
