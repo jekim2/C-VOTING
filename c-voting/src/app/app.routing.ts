@@ -7,6 +7,10 @@ export const AppRoutes: Routes = [
     component: CVotingMainComponent
   },
   {
+    path: 'main',
+    component: CVotingMainComponent
+  },
+  {
     path: '**',
     redirectTo: 'session/404'
   }

@@ -25,16 +25,26 @@ export class CVotingMainComponent implements OnInit {
         },
         spaceBetween: 40,
         speed: 400,
-        // autoplay: {
-        //   delay: 2000
-        // },
-        direction: 'horizontal'
+        autoplay: {
+          delay: 3000
+        }
+        // direction: 'horizontal'
       });
 
 
   }
 
   movePage (menu: string) {
+
+    switch (menu) {
+      case 'registration':
+          menu = "initiative/registration";
+        break;
+
+      default:
+        break;
+    }
+
     this.router.navigate([menu]);
   }
 

@@ -87,15 +87,15 @@ textarea::-webkit-input-placeholder {color:#c2c2c2;}
 
 /* main 영역 */
 .cv_subWrap01 .cv_header { position:absolute; left:0; top:0; right:0; height:300px; background:#fff; }
-.swiper-container {height:100%; z-index:50; top:0;}
-.swiper-wrapper, .swiper-slide { height:100%;}
+/* .swiper-container {height:100%; z-index:50; top:0;}
+.swiper-wrapper, .swiper-slide { height:100%;} */
 /* .swiper-pagination { position:absolute; left:0; width:100%; height: 100% ;font-size:0; text-align:center; border: 1px solid red; bottom:15px; z-index:initial;} */
 .cv_swiper {height:100%; min-height:300px; color:#fff; }
-.cv_swiper_01 { position: relative; background:url("../images/tree_02.jpg") no-repeat; background-size:100% auto; z-index: 50;}
-.cv_swiper_02 { background:url("../images/tree_02.jpg") no-repeat; background-size:100% auto; z-index: 50;}
-.cv_swiper_03 {position:absolute; left:0; top:0; right:0; height:300px;  background:url("../images/tree_01.jpg") no-repeat; background-size:100% auto; z-index: 50;}
+.cv_swiper_01 {position:absolute; left:0; top:0; right:0; height:300px;background:url("../images/tree_01.jpg") no-repeat; background-size:100% auto; z-index: 50;}
+.cv_swiper_02 { position:absolute; left:0; top:0; right:0; height:300px;  background:url("../images/tree_02.jpg") no-repeat; background-size:100% auto; z-index: 50;}
+.cv_swiper_03 {position:absolute; left:0; top:0; right:0; height:300px;  background:url("../images/tree_04.jpg") no-repeat; background-size:100% auto; z-index: 50;}
 .cv_swipe_title {  position: absolute; z-index: 100; color: #fff; text-align: right; font-size: 1.5em; }
-.cv_btn_search {position:fixed; right:5px; top:5px; width:50px; height:50px; font-weight:bold; font-size:.75rem;; background:url("../images/search_icon.png") no-repeat center center; background-size:100% auto; z-index:95;}
+.cv_btn_search {position:fixed; right:5px; top:5px; width:30px; height:30px; font-weight:bold; font-size:.75rem;; background:url("../images/search_icon.png") no-repeat center center; background-size:100% auto; z-index:95;}
 /* .cv_btn_search {position:fixed; right:10px; bottom:25px; width:70px; height:70px; background:url("../images/search_icon.png"); z-index: 86;} */
 
 .cv_subWrap01 {position:relative; height:100%; min-height:450px; padding-top:58px; background:#fff;}
@@ -115,9 +115,15 @@ textarea::-webkit-input-placeholder {color:#c2c2c2;}
 
 
 /* swiper */
-.swiper-container {height:100%; z-index:50;}
+/* .swiper-container {height:100%; z-index:50;}
 .swiper-wrapper, .swiper-wrapper .swiper-slide {height:100%;}
 .swiper-pagination {position:absolute; left:0; width:100%; font-size:0; text-align:center;}
 .swiper-pagination .swiper-pagination-bullet {display:inline-block; width:6px; height:6px; margin:0 4px; text-indent:-9999em; border-radius:50%;}
 .swiper-pagination.cw_paging02 span.swiper-pagination-bullet {-webkit-box-sizing:border-box; box-sizing:border-box; width:7px; height:7px; margin:0 3px; background:transparent; border:1px solid #000;}
 .swiper-pagination.cw_paging02 .swiper-pagination-bullet.swiper-pagination-bullet-active {background:#000;}
+.swiper-container.cw_airhome_graph {margin:0 -16px -15px; padding:10px 16px 30px;}
+.swiper-container.cw_airhome_graph .cw_legend:first-child {margin-top:-5px;}
+.cw_airhome_graph .swiper-pagination {bottom:15px; z-index:initial;} */
+.swiper-container { width: 100%; height: 100%; }
+.swiper-slide { text-align: center; font-size: 18px; background: #fff; display: -webkit-box;display: -ms-flexbox; display: -webkit-flex; display: flex;
+-webkit-box-pack: center; -ms-flex-pack: center; -webkit-justify-content: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center; }

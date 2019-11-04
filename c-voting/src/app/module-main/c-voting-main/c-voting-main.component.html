@@ -2,24 +2,24 @@
 <div class="cv_subWrap01">
     <div class="cv_header">
         <div class="swiper-container">
-            <!-- <div class="cv_swipe_title">C-VOTING</div>
-            <div class="cv_btn_search"></div> -->
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-                <!-- Slides -->
-                <div class="swiper-slide">Slide 1</div>
-                <div class="swiper-slide">Slide 2</div>
-                <div class="swiper-slide">Slide 3</div>
-            </div>
-            <!-- If we need pagination -->
+            <div class="cv_swipe_title">C-VOTING</div>
+        <div class="cv_btn_search"></div>
+          <ul class="swiper-wrapper">
+            <li class="swiper-slide">
+              <div class="cv_swiper cv_swiper_03"></div>
+            </li>
+            <li class="swiper-slide">
+              <div class="cv_swiper_02"></div>
+            </li>
+            <li class="swiper-slide">
+              <div class="cv_swiper_01"></div>
+            </li>
+            </ul>
+            <!-- Add Pagination -->
             <div class="swiper-pagination"></div>
-            <!-- If we need navigation buttons -->
-            <!-- <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div> -->
-        
-            <!-- If we need scrollbar -->
-            <!-- <div class="swiper-scrollbar"></div> -->
-        </div>
+          </div>
+
+
 
 
 
@@ -59,7 +59,7 @@
             <div class="tab01 item3">
               <div>
                 <ul>
-                  <li [class.on]="selected_menu == '/module/initiative'" (click)="onClickNavigateMenu('/module/initiative')"><button type="button"><span>발의</span></button></li>
+                  <li [class.on]="selected_menu == '/module/initiative'" (click)="onClickNavigateMenu('/initiative')"><button type="button"><span>발의</span></button></li>
                   <li [class.on]="selected_menu == '/module/review'" (click)="onClickNavigateMenu('/module/review')"><button type="button"><span>심의</span></button></li>
                   <li [class.on]="selected_menu == '/module/vote'" (click)="onClickNavigateMenu('/module/vote')"><button type="button"><span>의결</span></button></li>
                 </ul>
@@ -76,4 +76,4 @@
     <div class="cw_webcontainer">
     </div>
   </div>
-  <button type="button" class="btn_write" (click)="movePage('initiative/registration')"><span>Write</span></button>
+  <button type="button" class="btn_write" (click)="movePage('registration')"><span>Write</span></button>
