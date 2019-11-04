@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app.routing';
 import { CVotingMainComponent } from './module-main/c-voting-main/c-voting-main.component';
+import { InitiativeComponent } from './module-main-detail/initiative/initiative.component';
+import { InitiativeRegistrationComponent } from './module-main-detail/initiative/initiative-registration/initiative-registration.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CVotingMainComponent
+    CVotingMainComponent,
+    InitiativeComponent,
+    InitiativeRegistrationComponent
   ],
   imports: [
     BrowserModule,
