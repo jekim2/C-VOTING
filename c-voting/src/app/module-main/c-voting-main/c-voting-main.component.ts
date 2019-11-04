@@ -22,16 +22,15 @@ export class CVotingMainComponent implements OnInit {
     const swiper = new Swiper('.swiper-container', {
         pagination: {
           el: '.swiper-pagination',
+          type: 'bullets'
         },
-        spaceBetween: 40,
+      //  spaceBetween: 40,
         speed: 400,
         autoplay: {
           delay: 3000
         }
         // direction: 'horizontal'
       });
-
-
   }
 
   movePage (menu: string) {
