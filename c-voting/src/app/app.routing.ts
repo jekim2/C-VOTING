@@ -4,13 +4,7 @@ import { CVotingMainComponent } from './module-main/c-voting-main/c-voting-main.
 export const AppRoutes: Routes = [
   {
     path: '',
-    component: CVotingMainComponent,
-    children: [
-      {
-        path: 'mainDetail',
-        loadChildren: './module-main-detail/main-detail.module#MainDetailModule'
-      }
-    ]
+    component: CVotingMainComponent
   },
   {
     path: '**',

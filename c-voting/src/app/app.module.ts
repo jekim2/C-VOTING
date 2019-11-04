@@ -7,8 +7,8 @@ import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app.routing';
 import { CVotingMainComponent } from './module-main/c-voting-main/c-voting-main.component';
 import { InitiativeComponent } from './module-main-detail/initiative/initiative.component';
-import { InitiativeRegistrationComponent } from './module-main-detail/initiative/initiative-registration/initiative-registration.component';
-
+import { InitiativeRegistrationComponent } from './module-main-detail/initiative-registration/initiative-registration.component';
+import { MainDetailRoutes } from './module-main-detail/main-detail.routing';
 
 @NgModule({
   declarations: [
@@ -22,6 +22,11 @@ import { InitiativeRegistrationComponent } from './module-main-detail/initiative
     RouterModule.forRoot(
       AppRoutes
     ),
+    RouterModule.forRoot(
+      MainDetailRoutes
+    ),
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

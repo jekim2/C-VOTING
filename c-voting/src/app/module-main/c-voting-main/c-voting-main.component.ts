@@ -20,16 +20,22 @@ export class CVotingMainComponent implements OnInit {
 
 
     const swiper = new Swiper('.swiper-container', {
-      pagination: {
-        el: '.swiper-pagination',
-      },
-      // autoplay: {
-      //   delay: 2000
-      // },
-      direction: 'horizontal'
+        pagination: {
+          el: '.swiper-pagination',
+        },
+        spaceBetween: 40,
+        speed: 400,
+        // autoplay: {
+        //   delay: 2000
+        // },
+        direction: 'horizontal'
       });
 
 
+  }
+
+  movePage (menu: string) {
+    this.router.navigate([menu]);
   }
 
   onClickNavigateMenu (menu: string) {
