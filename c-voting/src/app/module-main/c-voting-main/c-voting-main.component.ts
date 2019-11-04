@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Swiper from 'swiper';
 
 @Component({
   selector: 'app-c-voting-main',
@@ -15,6 +16,20 @@ export class CVotingMainComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+
+
+    const swiper = new Swiper('.swiper-container', {
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      // autoplay: {
+      //   delay: 2000
+      // },
+      direction: 'horizontal'
+      });
+
+
   }
 
   onClickNavigateMenu (menu: string) {
