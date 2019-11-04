@@ -3,21 +3,15 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { HeaderLayoutComponent } from './layouts/header-layout/header-layout.component';
-import { InitiativeComponent } from './module-initiative/initiative/initiative.component';
-import { ReviewComponent } from './module-review/review/review.component';
-import { VoteComponent } from './module-vote/vote/vote.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app.routing';
+import { CVotingMainComponent } from './module-main/c-voting-main/c-voting-main.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderLayoutComponent,
-    InitiativeComponent,
-    ReviewComponent,
-    VoteComponent
+    CVotingMainComponent
   ],
   imports: [
     BrowserModule,

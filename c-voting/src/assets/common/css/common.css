@@ -78,9 +78,14 @@ img {max-width:100%; vertical-align:top;}
 input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {-webkit-appearance:none; margin:0;}
 textarea::-webkit-input-placeholder {color:#c2c2c2;}
 
+.cv_header {position:absolute; left: 0;right:0; top:0; height:300px; }
+.cv_swipe_container {height:100%; z-index:50; }
+.cv_swiper_wraper, .cv_swiper_slide { height:100%;}
+.cv_swiper-pagination {position:absolute; left:0; width:100%; font-size:0; text-align:center;}
+
 .subWrap01 {position:relative; height:100%; min-height:450px; padding-top:58px; background:#fff;}
 .webcontainer {position:relative; max-width:530px; margin:0 auto;}
-.topfix {position:absolute; left:0; top:350px; right:0; background:#fff;  border-bottom:1.5px solid #cdced3; z-index:100;}
+.topfix {position:absolute; left:0; top:320px; right:0; background:#fff;  border-bottom:1.5px solid #cdced3; z-index:100;}
 .tab01 {position:relative; overflow:hidden;}
 .tab01 > div {height:41px; margin:0 15px; overflow-x:auto; overflow-y:hidden;}
 .tab01 ul {display:table; width:100%; background:#fff;}
@@ -90,3 +95,5 @@ textarea::-webkit-input-placeholder {color:#c2c2c2;}
 .tab01 .on button {color:#000;}
 .tab01 .on button > span:before {content:""; position:absolute; left:50%; top:0; width:100%; min-width:2em; height:39px; border-bottom:2px solid #1971c2; -webkit-transform:translateX(-50%); transform:translateX(-50%);}
 .tab01 .item3 li {width:33.3333%;}
+.btn_write {position:fixed; right:10px; bottom:25px; width:70px; height:70px; padding-top:2px; font-weight:bold; font-size:.75rem; color:#1796e2; background:url("../images/cv_write.png") no-repeat center center; background-size:100% auto; z-index:95;}
+.btn_write > span {position:absolute; text-indent:-999em; opacity:0;}

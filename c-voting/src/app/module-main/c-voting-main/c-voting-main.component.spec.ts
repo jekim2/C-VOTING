@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeaderLayoutComponent } from './header-layout.component';
+import { CVotingMainComponent } from './c-voting-main.component';
 
-describe('HeaderLayoutComponent', () => {
-  let component: HeaderLayoutComponent;
-  let fixture: ComponentFixture<HeaderLayoutComponent>;
+describe('CVotingMainComponent', () => {
+  let component: CVotingMainComponent;
+  let fixture: ComponentFixture<CVotingMainComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderLayoutComponent ]
+      declarations: [ CVotingMainComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderLayoutComponent);
+    fixture = TestBed.createComponent(CVotingMainComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

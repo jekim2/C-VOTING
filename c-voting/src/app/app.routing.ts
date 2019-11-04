@@ -1,22 +1,14 @@
 import { Routes } from '@angular/router';
-import { HeaderLayoutComponent } from "./layouts/header-layout/header-layout.component";
+import { CVotingMainComponent } from './module-main/c-voting-main/c-voting-main.component';
 
 export const AppRoutes: Routes = [
   {
     path: '',
-    component: HeaderLayoutComponent,
+    component: CVotingMainComponent,
     children: [
       {
-        path: 'initiative',
-        loadChildren: './module-initiative/initiative.module#InitiativeModule'
-      },
-      {
-        path: 'review',
-        loadChildren: './module-review/initiative.module#ReviewModule'
-      },
-      {
-        path: 'vote',
-        loadChildren: './module-vote/initiative.module#VoteModule'
+        path: 'mainDetail',
+        loadChildren: './module-main-detail/main-detail.module#MainDetailModule'
       }
     ]
   },
@@ -25,4 +17,3 @@ export const AppRoutes: Routes = [
     redirectTo: 'session/404'
   }
   ];
-  

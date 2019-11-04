@@ -1,0 +1,47 @@
+
+<div class="subWrap01 topfixWrap">
+    <!-- swipe -->
+    <div class="cv_header">
+      <div class="cv_swipe_container">
+        <ul class="cv_swipe_wrapper">
+          <li class="cv_swiper-slide cv_swiper-slide-active">
+              <div>
+              </div>
+          </li>
+          <li class="cv_swiper-slide">
+            <div>
+            </div>
+          </li>
+          <li class="cv_swiper-slide">
+            <div>
+            </div>
+          </li>
+        </ul>
+        <div class="cv_swiper-pagination">
+      </div>
+    </div>
+      <!-- top fix area -->
+      <div class="topfix">
+          <div class="webcontainer">
+            <!-- tab -->
+            <div class="tab01 item3">
+              <div>
+                <ul>
+                  <li [class.on]="selected_menu == '/module/initiative'" (click)="onClickNavigateMenu('/module/initiative')"><button type="button"><span>발의</span></button></li>
+                  <li [class.on]="selected_menu == '/module/review'" (click)="onClickNavigateMenu('/module/review')"><button type="button"><span>심의</span></button></li>
+                  <li [class.on]="selected_menu == '/module/vote'" (click)="onClickNavigateMenu('/module/vote')"><button type="button"><span>의결</span></button></li>
+                </ul>
+              </div>
+            </div>
+            <!-- //tab -->
+          </div>
+        </div>
+      <!-- //top fix area -->
+    </div>
+    <div class="cw_contentsWrap">
+      <!-- web contents area -->
+      <div class="cw_webcontainer">
+      </div>
+    <button type="button" class="btn_write"><span>Refresh</span></button>
+    </div>
+    <!-- <router-outlet></router-outlet> -->
