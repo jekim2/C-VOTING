@@ -17,27 +17,26 @@ export class CVotingMainComponent implements OnInit {
 
   ngOnInit() {
 
-
-
     const swiper = new Swiper('.swiper-container', {
-        pagination: {
-          el: '.swiper-pagination',
-          type: 'bullets'
-        },
-      //  spaceBetween: 40,
-        speed: 400,
-        autoplay: {
-          delay: 3000
-        }
-        // direction: 'horizontal'
-      });
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets'
+      },
+      speed: 400,
+      // autoplay: {
+      //   delay: 3000,
+      //   disableOnInteraction: false
+      // },
+      direction: 'horizontal',
+      loop: true
+    });
   }
 
   movePage (menu: string) {
 
     switch (menu) {
       case 'registration':
-          menu = "initiative/registration";
+          menu = 'initiative/registration';
         break;
 
       default:

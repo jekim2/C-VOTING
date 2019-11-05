@@ -1,79 +1,79 @@
 
-<div class="cv_subWrap01">
-    <div class="cv_header">
-        <div class="swiper-container">
-            <div class="cv_swipe_title">C-VOTING</div>
-        <div class="cv_btn_search"></div>
-          <ul class="swiper-wrapper">
-            <li class="swiper-slide">
-              <div class="cv_swiper cv_swiper_03"></div>
-            </li>
-            <li class="swiper-slide">
-              <div class="cv_swiper cv_swiper_02"></div>
-            </li>
-            <li class="swiper-slide">
-              <div class="cv_swiper cv_swiper_01"></div>
-            </li>
-            </ul>
-            <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
-          </div>
-
-
-
-
-
-
-      <!-- <div class="cv_swipe_container">
-        <div class="cv_swipe_title">C-VOTING</div>
-        <div class="cv_btn_search"></div>
-        <ul class="cv_swipe_wrapper">
-          <li class="cv_swiper-slide cv_swiper-slide-active">
+<div class="cv_subWrap01 cv_topfixWrap">
+  <div class="cv_header">
+    <div class="swiper-container">
+      <div class="cv_swipe_title">C-VOTING</div>
+      <div class="cv_btn_search"></div>
+        <ul class="swiper-wrapper">
+          <li class="swiper-slide">
             <div class="cv_swiper cv_swiper_03"></div>
           </li>
-        </ul> -->
-        <!-- <ul class="cv_swipe_wrapper">
-          <li class="cv_swiper-slide cv_swiper-slide-active">
-            <div class="cv_swiper cv_swiper_01">
-              <div class="cv_swipe_title">C-VOTING</div>
-              <div class="cv_btn_search"></div>
-            </div>
+          <li class="swiper-slide">
+            <div class="cv_swiper cv_swiper_02"></div>
           </li>
-          <li class="cv_swiper cv_swiper_slide">
-            <div>
-            </div>
+          <li class="swiper-slide">
+            <div class="cv_swiper cv_swiper_01"></div>
           </li>
-          <li class="cv_swiper cv_swiper-slide">
-            <div>
+          </ul>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <!-- top fix area -->
+    <div class="cv_topfix">
+      <div class="webcontainer">
+        <!-- tab -->
+        <div class="tab01 st02">
+          <ul>
+            <li [class.cv_balloon]="selected_menu == '/module/initiative'" (click)="onClickNavigateMenu('/initiative')"><button type="button"><span>발의</span></button></li>
+            <li [class.cv_balloon]="selected_menu == '/module/review'" (click)="onClickNavigateMenu('/module/review')"><button type="button"><span>심의</span></button></li>
+            <li [class.cv_balloon]="selected_menu == '/module/vote'"(click)="onClickNavigateMenu('/module/vote')"><button type="button"><span>의결</span></button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- top fix area -->
+  </div>
+
+  <div class="cv_contentsWrap">
+    <!-- web contents area -->
+    <div class="cv_webcontainer">
+      <div class="cv_tab_cont">
+        <div class="cv_list_title">
+          <button class="cv_btn_star"><p>135</p></button>
+          <strong>셔틀버스를 재게해 주세요.</strong>
+        </div>
+        <ul class="cv_main_list">
+          <li>
+            <div class="cv_info">
+              <!-- filter image -->
+              <div class="cv_img">
+                <span><img src="/src/assets/common/images/no_img.png" alt="filter image"></span>
+              </div>
+              <!-- //filter image -->
+              <!-- filter contents -->
+              <div class="cw_cont">
+                <div>
+                  <div class="cw_tit">
+                    <strong>프리 필터</strong>
+                    <button type="button" class="cw_btn_detail01"><span>자세히 보기</span></button>
+                  </div>
+                </div>
+                <!-- filter replace status -->
+                <div class="cw_replaceWrap" data-max="80" data-now="10">
+                  <div class="cw_dday">
+                    <strong class="cw_ddaytit">D-<span>10</span></strong>
+                  </div>
+                  <!-- bar graph -->
+                  <!-- //bar graph -->
+                </div>
+                <!-- //filter replace status -->
+              </div>
+              <!-- //filter contents -->
             </div>
           </li>
         </ul>
-        <div class="cv_swiper-pagination"> -->
-      <!-- </div> -->
-    <!-- </div> -->
-  </div>
-      <!-- top fix area -->
-      <div class="cv_topfix">
-          <div class="webcontainer">
-            <!-- tab -->
-            <div class="tab01 item3">
-              <div>
-                <ul>
-                  <li [class.on]="selected_menu == '/module/initiative'" (click)="onClickNavigateMenu('/initiative')"><button type="button"><span>발의</span></button></li>
-                  <li [class.on]="selected_menu == '/module/review'" (click)="onClickNavigateMenu('/module/review')"><button type="button"><span>심의</span></button></li>
-                  <li [class.on]="selected_menu == '/module/vote'" (click)="onClickNavigateMenu('/module/vote')"><button type="button"><span>의결</span></button></li>
-                </ul>
-              </div>
-            </div>
-            <!-- //tab -->
-          </div>
-        </div>
-      <!-- //top fix area -->
-  </div>
-
-  <div class="cw_contentsWrap">
-    <!-- web contents area -->
-    <div class="cw_webcontainer">
+      </div>
     </div>
   </div>
   <button type="button" class="btn_write" (click)="movePage('registration')"><span>Write</span></button>
+</div>

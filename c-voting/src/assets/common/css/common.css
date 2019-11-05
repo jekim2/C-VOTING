@@ -78,6 +78,8 @@ img {max-width:100%; vertical-align:top;}
 input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {-webkit-appearance:none; margin:0;}
 textarea::-webkit-input-placeholder {color:#c2c2c2;}
 
+
+
 @media screen and (min-width:700px) and (min-height:450px){
 	.cv_subWrap01 .cv_header, .cv_subWrap01 {position:fixed; z-index:100;}
 }
@@ -87,32 +89,46 @@ textarea::-webkit-input-placeholder {color:#c2c2c2;}
 
 /* main 영역 */
 .cv_subWrap01 .cv_header { position:absolute; left:0; top:0; right:0; height:300px; background:#fff; }
-/* .swiper-container {height:100%; z-index:50; top:0;}
-.swiper-wrapper, .swiper-slide { height:100%;} */
-/* .swiper-pagination { position:absolute; left:0; width:100%; height: 100% ;font-size:0; text-align:center; border: 1px solid red; bottom:15px; z-index:initial;} */
 .cv_swiper {height:100%; min-height:300px; color:#fff; }
 .cv_swiper_01 {position:absolute; left:0; top:0; right:0; height:300px;background:url("../images/tree_01.jpg") no-repeat; background-size:100% auto; z-index: 50;}
 .cv_swiper_02 { position:absolute; left:0; top:0; right:0; height:300px;  background:url("../images/tree_02.jpg") no-repeat; background-size:100% auto; z-index: 50;}
 .cv_swiper_03 {position:absolute; left:0; top:0; right:0; height:300px;  background:url("../images/tree_04.jpg") no-repeat; background-size:100% auto; z-index: 50;}
-.cv_swipe_title {  position: absolute; z-index: 100; color: #fff; text-align: right; font-size: 1.5em; }
+.cv_swipe_title {  position: absolute; z-index: 100; color: #fff; text-align: right; font-size: 1em; }
 .cv_btn_search {position:fixed; right:5px; top:5px; width:30px; height:30px; font-weight:bold; font-size:.75rem;; background:url("../images/search_icon.png") no-repeat center center; background-size:100% auto; z-index:95;}
-/* .cv_btn_search {position:fixed; right:10px; bottom:25px; width:70px; height:70px; background:url("../images/search_icon.png"); z-index: 86;} */
-
 .cv_subWrap01 {position:relative; height:100%; min-height:450px; padding-top:58px; background:#fff;}
+.cv_topfixWrap {padding-top: 300px;}
+
 .webcontainer {position:relative; max-width:530px; margin:0 auto;}
-.cv_topfix {position:absolute; left:0; top:250px; right:0; background:#fff;  border-bottom:1.5px solid #cdced3; z-index:100;}
-.tab01 {position:relative; overflow:hidden;}
-.tab01 > div {height:41px; margin:0 15px; overflow-x:auto; overflow-y:hidden;}
-.tab01 ul {display:table; width:100%; background:#fff;}
-.tab01 li {display:table-cell;}
-.tab01 button {position:relative; width:100%; min-width:4em; height:41px; padding:0 10px; font-size:.875em; color:#8e8e93;}
-.tab01 button > span {position:relative; display:inline-block; height:39px; padding-top:2px; line-height:39px; white-space:nowrap;}
-.tab01 .on button {color:#000;}
-.tab01 .on button > span:before {content:""; position:absolute; left:50%; top:0; width:100%; min-width:2em; height:39px; border-bottom:2px solid #1971c2; -webkit-transform:translateX(-50%); transform:translateX(-50%);}
-.tab01 .item3 li {width:33.3333%;}
+.cv_topfix {position:absolute; left:0; top:250px; right:0; background:#fff;  z-index:100;}
+.tab01 ul {display:table; width:100%; border-collapse:collapse; -webkit-box-sizing:border-box; box-sizing:border-box;}
+.tab01 ul li {display:table-cell; width:50%; background:hsl(235, 100%, 17%); border:0 solid #fff; border-width:0 1px 1px;}
+.tab01 ul li:first-child {border-left:none;}
+.tab01 ul li:last-child {border-right:none;}
+.tab01 ul li button {width:100%; height:40px; color:#fff;}
+.tab01 ul li.on {background:#fff; border-bottom-color:rgba(0,0,0,0);}
+.tab01 ul li.on button {color:#00a73b;}
+.tab01 ul li.on button {color:#00a73b;}
+.tab01.item2 li {width:50%; font-size:1.125rem; white-space:nowrap;}
+.tab01.item3 li {width:33%;}
+.tab01.item4 li {width:25%;}
+.tab01.st02 li {width:auto;}
+.tab01.st02 button {min-width:4em; white-space:nowrap;}
+.cv_contentsWrap, .cw_contentsWrap > .cw_webcontainer {height:100%; overflow:auto; -webkit-overflow-scrolling:touch;}
+.cv_list_title { position: relative ; border-bottom: 1px solid #c0c0c0; padding: 0 0 5px 20px;}
+.cv_list_title .cv_btn_star>p {display:block; color:gray; font-size: 0.65em; padding-left: 15px; text-indent: 0.2em; line-height: 1px;}
+.cv_list_title > strong { display: block; text-indent:4em; color:gray; font-size: 0.65em; font-weight: normal; overflow: hidden; }
+.cv_list_title > strong > div { position: absolute; top: 0; height: 100%; overflow: hidden;}
+.cv_main_list { border-bottom:1px solid #c0c0c0;}
+.cv_main_list > li { padding: 2px 8px; border-bottom: 1px solid #c0c0c0;}
+.cv_main_list > li:last-child {border:none;}
+.cv_btn_star {position: absolute; width: 15px; height: 15px;  background:url("../images/cv_btn_star.png") no-repeat center center; background-size:100% auto; }
+.cv_btn_star> span { color: gray; font-size: 0.795em;}
+.cv_sub_title { padding-left: 30px; font-size: 0.795em;}
+
 .btn_write {position:fixed; right:10px; bottom:25px; width:70px; height:70px; padding-top:2px; font-weight:bold; font-size:.75rem; color:#1796e2; background:url("../images/cv_write.png") no-repeat center center; background-size:100% auto; z-index:95;}
 .btn_write > span {position:absolute; text-indent:-999em; opacity:0;}
-
+.cv_balloon {  position:relative; margin: 50px; background: #000758; }
+.cv_balloon:after { content:""; position:absolute;border-top: 5px solid #000758; border-right: 5px solid transparent; border-left: 5px solid transparent; bottom: -4px; left: 55px; }
 
 /* swiper */
 .swiper-container {height:100%; z-index:50;}
@@ -129,3 +145,4 @@ textarea::-webkit-input-placeholder {color:#c2c2c2;}
 .swiper-slide { text-align: center; font-size: 18px; background: #fff; display: -webkit-box;display: -ms-flexbox; display: -webkit-flex; display: flex;
 -webkit-box-pack: center; -ms-flex-pack: center; -webkit-justify-content: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center; }
 .swiper-container-horizontal>.swiper-pagination-bullets {bottom:60px !important;}
+.swiper-pagination .swiper-pagination-bullet {display:inline-block; width:6px; height:6px; margin:0 4px; text-indent:-9999em; border-radius:50%;  background-color: #fff;}
