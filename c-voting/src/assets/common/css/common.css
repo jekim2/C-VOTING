@@ -118,11 +118,11 @@ textarea::-webkit-input-placeholder {color:#c2c2c2;}
 .cv_contentsWrap, .cw_contentsWrap > .cw_webcontainer {height:100%; overflow:auto; -webkit-overflow-scrolling:touch;}
 .cv_list_title { position: relative ; border-bottom: 1px solid #c0c0c0; padding: 0 0 5px 20px;}
 .cv_list_title .cv_btn_star > p {display:block; color:gray; font-size: 0.65em; padding-left: 15px; text-indent: 0.2em; line-height: 1px;}
-.cv_list_title > strong { display: block; text-indent:4em; color:gray; font-size: 0.65em; font-weight: normal; overflow: hidden; }
-.cv_list_title > strong > div { position: absolute; top: 0; height: 100%; overflow: hidden;}
+.cv_list_title strong { display: block; text-indent:4em; color:gray; font-size: 0.65em; font-weight: normal; overflow: hidden; }
+.cv_list_title strong > div { position: absolute; top: 0; height: 100%; overflow: hidden;}
 .cv_main_list { border-bottom:1px solid #c0c0c0;}
-.cv_main_list > li { padding: 2px 8px; border-bottom: 1px solid #c0c0c0;}
-.cv_main_list > li:last-child { border:none; }
+.cv_main_list li { padding: 2px 8px; border-bottom: 1px solid #c0c0c0;}
+.cv_main_list li:last-child { border:none; }
 .cv_info { position: relative; display: table; width: 100%;}
 .cv_img {width: 80px;}
 .cv_info > div { display: table-cell; vertical-align: center;}
@@ -143,7 +143,7 @@ textarea::-webkit-input-placeholder {color:#c2c2c2;}
 
 /* contents 영역 */
 .cv_conWrap01 {position:relative;min-height:100%; background:#fff; height:100%;}
-.cv_contentsWrap {min-height:100%; padding:16px;}
+.cv_contentsWrap {min-height:100%; padding:0;}
 .margin10 {margin:0 10px;}
 .padding0 {padding:0px;}
 
