@@ -1,32 +1,50 @@
 <div class="cv_conWrap01">
-  <div class="cv_contentsWrap">
+  <div class="cv_contentsWrap margin10">
     <!-- web contents area -->
-    <div class="contentsBox">
-      <div class="catuionBox">
-        <h2 class="tit">● 주의사항</h2>
-        <div class="notiWrap">
-          <p>주의사항ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</p>
-        </div>
-        <div class="agreeBox">
-          <label>
-            <input type="checkbox" id="" name=""><span>위 내용에 동의합니다.</span>
-          </label>
-        </div>
+    <div class="catuionBox">
+      <h2 class="tit">● 주의사항</h2>
+      <div class="notiWrap">
+        <p>주의사항ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</p>
       </div>
-      <div class="registCon">
-        <fieldset class="writeForm01">
-            <legend>발의 등록</legend>
-            <label><span>제목</span><input type="text" id="" name="" placeholder="제목을 입력해주세요."></label>
-            <label><span>내용</span><textarea rows="5" cols="80" placeholder="내용을 입력해주세요."></textarea></label>
-        </fieldset>
+      <div class="agreeBox">
+        <label>
+          <input type="checkbox" id="" name=""><span>위 내용에 동의합니다.</span>
+        </label>
       </div>
     </div>
+    <fieldset class="writeForm01">
+        <legend>발의 등록</legend>
+        <label><span class="tit">제목</span><input type="text" class="subject" id="" name="" placeholder="제목을 입력해주세요."></label>
+        <label class="content"><span class="tit">내용</span><textarea rows="8" cols="80" placeholder="내용을 입력해주세요."></textarea></label>
+        <label><button type="button" class="btn_attach"></button><span id="">첨부한 파일 이름</span></label>
+    </fieldset>
+    <!-- bottom -->
+    <div class="c_btn">
+      <button type="button" class="btn01"><span>완료</span></button>
+      <button type="button" class="btn01"(click)="isCancelAlert=true"><span>취소</span></button>
+    </div>
+    <!-- //bottom -->
   </div>
-  <!-- bottom fix -->
-  <div class="c_btn">
-    <button type="button" class="btn01"><span>완료</span></button>
-    <button type="button" class="btn01"><span>취소</span></button>
-  </div>
-  <!-- //bottom fix -->
+  <!-- //web contents area -->
 </div>
 
+<!-- system popup style -->
+<div [class.cv_none]="!isCancelAlert" class="cv_popWrap">
+	<!-- popup box -->
+	<div class="cv_popbox">
+		<!-- popup contents -->
+		<div class="cv_popcont">
+			<p>글쓰기를 취소하시겠습니까?</p>
+		</div>
+		<!-- //popup contents -->
+		
+		<!-- popup button -->
+		<div class="cv_popbtn">
+			<button type="button"><span>확인</span></button><!-- 메인 화면으로 이동 -->
+			<button type="button" class="cv_btn_cancel" (click)="isCancelAlert=false"><span>취소</span></button>
+		</div>
+		<!-- //popup button -->
+	</div>
+	<!-- //popup box -->
+</div>
+<!-- //system popup style -->

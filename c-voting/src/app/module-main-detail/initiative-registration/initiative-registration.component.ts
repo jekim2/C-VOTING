@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InitiativeRegistrationComponent implements OnInit {
 
+  // Flag
+  isCancelAlert = false;         // 글쓰기 취소 팝업 Flag
+
   constructor() { }
 
   ngOnInit() {
