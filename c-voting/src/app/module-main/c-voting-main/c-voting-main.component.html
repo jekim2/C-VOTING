@@ -24,7 +24,7 @@
         <!-- tab -->
         <div class="tab01 st02">
           <ul>
-            <li [class.cv_balloon]="selected_menu == '/module/initiative'" (click)="onClickNavigateMenu('/initiative')"><button type="button"><span>발의</span></button></li>
+            <li [class.cv_balloon]="selected_menu == '/module/initiative'" (click)="onClickNavigateMenu('/module/initiative')"><button type="button"><span>발의</span></button></li>
             <li [class.cv_balloon]="selected_menu == '/module/review'" (click)="onClickNavigateMenu('/module/review')"><button type="button"><span>심의</span></button></li>
             <li [class.cv_balloon]="selected_menu == '/module/vote'"(click)="onClickNavigateMenu('/module/vote')"><button type="button"><span>의결</span></button></li>
           </ul>
@@ -37,7 +37,8 @@
   <div class="cv_contentsWrap">
     <!-- web contents area -->
     <div class="cv_webcontainer">
-      <div class="cv_tab_cont">
+      <!-- 발의 -->
+      <div [class.cv_none]="selected_menu !== '/module/initiative'" class="cv_tab_cont">
         <div class="cv_list_title">
           <button class="cv_btn_star"><p>135</p></button>
           <strong>셔틀버스를 재게해 주세요.</strong>
@@ -74,7 +75,7 @@
                 <div>
                   <div class="cv_tit">
                     <strong>밤에 건물 불을 켜주세요.</strong>
-                    <button class="cv_btn_star"><p>135</p></button>
+                    <div class="cv_btn_star"><p>135</p></div>
                   </div>
                 </div>
               </div>
@@ -83,6 +84,101 @@
           </li>
         </ul>
       </div>
+      <!--//발의 -->
+
+      <!-- 심의 -->
+      <div [class.cv_none]="selected_menu !== '/module/review'" class="cv_tab_cont">
+        <div class="cv_list_title">
+          <strong class="cv_ddaytit">D-<span>7</span>  <span class="cv_ddaytit_02">기숙사 안전 점검을 정기화 해주세요.</span></strong>
+        
+				</div>
+        <ul class="cv_main_list">
+          <li>
+            <div class="cv_info">
+              <!-- notice image -->
+              <div class="cv_img">
+                <span><img src = "../../../assets/common/images/no_img.png" alt="filter image"></span>
+              </div>
+              <!-- //notice image -->
+              <!-- notice contents -->
+              <div class="cv_cont">
+                <div>
+                  <div class="cv_tit">
+                    <strong>후문 계단을 안전하게 만들어주세요.</strong>
+                  </div>
+                </div>
+              </div>
+              <!-- //notice contents -->
+            </div>
+          </li>
+          <li>
+            <div class="cv_info">
+              <!-- notice image -->
+              <div class="cv_img">
+                <span><img src = "../../../assets/common/images/no_img.png" alt="filter image"></span>
+              </div>
+              <!-- //notice image -->
+              <!-- notice contents -->
+              <div class="cv_cont">
+                <div>
+                  <div class="cv_tit">
+                    <strong>밤에 건물 불을 켜주세요.</strong>
+                  </div>
+                </div>
+              </div>
+              <!-- //notice contents -->
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- //심의 -->
+
+      <!-- 의결 -->
+      <div [class.cv_none]="selected_menu !== '/module/vote'" class="cv_tab_cont">
+        <ul class="cv_main_list">
+          <li>
+            <div class="cv_info">
+              <!-- notice image -->
+              <div class="cv_img">
+                <span><img src = "../../../assets/common/images/no_img.png" alt="filter image"></span>
+              </div>
+              <!-- //notice image -->
+              <!-- notice contents -->
+              <div class="cv_cont">
+                <div>
+                  <div class="cv_tit">
+                    <strong>의결 페이지 입니다.</strong>
+                    <div class="cv_total">총 참여<span>100</span>명</div>
+                    <div class="cv_btn_yellow_check"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- //notice contents -->
+            </div>
+          </li>
+          <li>
+            <div class="cv_info">
+              <!-- notice image -->
+              <div class="cv_img">
+                <span><img src = "../../../assets/common/images/no_img.png" alt="filter image"></span>
+              </div>
+              <!-- //notice image -->
+              <!-- notice contents -->
+              <div class="cv_cont">
+                <div>
+                  <div class="cv_tit">
+                    <strong>밤에 건물 불을 켜주세요.</strong>
+                    <div class="cv_total">총 참여<span>100</span>명</div>
+                    <div class="cv_btn_yellow_check"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- //notice contents -->
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- //의결 -->
     </div>
   </div>
   <button type="button" class="btn_write" (click)="movePage('registration')"><span>Write</span></button>
