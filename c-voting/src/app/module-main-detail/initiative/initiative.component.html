@@ -1,3 +1,41 @@
-<p>
-  initiative works!
-</p>
+<div class="cv_conWrap01 titleWrap">
+  <!-- header area -->
+  <header class="cv_title">
+    <h3 class="cv_tit">발의</h3>
+    <div class="cv_head_left">
+      <button type="button" class="btn_back"><span>Previous</span></button>
+    </div>
+  </header>
+  <!-- //header area -->
+
+  <!-- web contents area -->
+  <div class="cv_contentsWrap margin10 padding0">
+    <div class="cv_init_detail">
+      <div class="subject"><span>셔틀버스 재개해주세요.</span></div>
+      <div class="name"><span>김민지(학부생)</span></div>
+      <div class="date"><span>10/10 21:08</span></div>
+    </div>
+  </div>
+  <!-- //web contents area -->
+</div>
+
+<!-- system popup style -->
+<div [class.cv_none]="!isCancelAlert" class="cv_popWrap">
+	<!-- popup box -->
+	<div class="cv_popbox">
+		<!-- popup contents -->
+		<div class="cv_popcont">
+			<p>글쓰기를 취소하시겠습니까?</p>
+		</div>
+		<!-- //popup contents -->
+		
+		<!-- popup button -->
+		<div class="cv_popbtn">
+			<button type="button"><span>확인</span></button><!-- 메인 화면으로 이동 -->
+			<button type="button" class="cv_btn_cancel" (click)="isCancelAlert=false"><span>취소</span></button>
+		</div>
+		<!-- //popup button -->
+	</div>
+	<!-- //popup box -->
+</div>
+<!-- //system popup style -->
