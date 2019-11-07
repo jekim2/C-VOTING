@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InitiativeComponent implements OnInit {
 
+  //Flag
+  isRecommandlAlert = false;    // 추천 팝업 Flag
+
   constructor() { }
 
   ngOnInit() {
