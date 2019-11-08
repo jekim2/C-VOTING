@@ -9,13 +9,17 @@ import { CVotingMainComponent } from './module-main/c-voting-main/c-voting-main.
 import { InitiativeComponent } from './module-main-detail/initiative/initiative.component';
 import { InitiativeRegistrationComponent } from './module-main-detail/initiative-registration/initiative-registration.component';
 import { MainDetailRoutes } from './module-main-detail/main-detail.routing';
+import { VoteComponent } from './module-main-detail/vote/vote.component';
+import { VoteDetailComponent } from './module-main-detail/vote/vote-detail/vote-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CVotingMainComponent,
     InitiativeComponent,
-    InitiativeRegistrationComponent
+    InitiativeRegistrationComponent,
+    VoteComponent,
+    VoteDetailComponent
   ],
   imports: [
     BrowserModule,

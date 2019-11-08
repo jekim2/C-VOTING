@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InitiativeComponent } from './initiative/initiative.component';
 import { InitiativeRegistrationComponent } from './initiative-registration/initiative-registration.component';
+import { VoteComponent } from './vote/vote.component';
+import { VoteDetailComponent } from './vote/vote-detail/vote-detail.component';
 
 @NgModule({
   imports: [
@@ -12,7 +14,9 @@ import { InitiativeRegistrationComponent } from './initiative-registration/initi
   ],
   declarations: [
     InitiativeComponent,
-    InitiativeRegistrationComponent
+    InitiativeRegistrationComponent,
+    VoteComponent,
+    VoteDetailComponent
   ]
 })
 export class MainDetailModule { }
