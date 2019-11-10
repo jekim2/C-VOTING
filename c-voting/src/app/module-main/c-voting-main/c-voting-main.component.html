@@ -19,24 +19,23 @@
             <div class="cv_swiper cv_swiper_01"></div>
           </li>
           </ul>
-        <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
     </div>
-    <!-- top fix area -->
-    <div class="cv_topfix">
-      <div class="webcontainer">
-        <!-- tab -->
-        <div class="tab01 st02">
-          <ul>
-            <li [class.cv_balloon]="selected_menu == 'initiative'" (click)="selected_menu = 'initiative'" ><button type="button"><span>발의</span></button></li>
-            <li [class.cv_balloon]="selected_menu == 'review'" (click)="selected_menu = 'review'"><button type="button"><span>심의</span></button></li>
-            <li [class.cv_balloon]="selected_menu == 'vote'" (click)="selected_menu = 'vote'"><button type="button"><span>의결</span></button></li>
-          </ul>
-        </div>
+  </div>
+  <!-- top fix area -->
+  <div class="cv_topfix">
+    <div class="webcontainer">
+      <!-- tab -->
+      <div class="tab01 st02">
+        <ul>
+          <li [class.cv_balloon]="selected_menu == 'initiative'" (click)="selected_menu = 'initiative'" ><button type="button"><span>발의</span></button></li>
+          <li [class.cv_balloon]="selected_menu == 'review'" (click)="selected_menu = 'review'"><button type="button"><span>심의</span></button></li>
+          <li [class.cv_balloon]="selected_menu == 'vote'" (click)="selected_menu = 'vote'"><button type="button"><span>의결</span></button></li>
+        </ul>
       </div>
     </div>
-    <!-- top fix area -->
   </div>
+  <!-- top fix area -->
 
   <div class="cv_contentsWrap">
     <!-- web contents area -->

@@ -91,10 +91,10 @@ textarea::-webkit-input-placeholder {color:#c2c2c2;}
 .cv_none {display:none !important;}
 /* main 영역 */
 .cv_subWrap01 .cv_header { position:absolute; left:0; top:0; right:0; height:300px; background:#fff; }
-.cv_swiper {height:100%; min-height:300px; color:#fff; }
-.cv_swiper_01 {position:absolute; left:0; top:0; right:0; height:300px;background:url("../images/tree_01.jpg") no-repeat; background-size:100% auto; z-index: 50;}
-.cv_swiper_02 { position:absolute; left:0; top:0; right:0; height:300px;  background:url("../images/tree_02.jpg") no-repeat; background-size:100% auto; z-index: 50;}
-.cv_swiper_03 {position:absolute; left:0; top:0; right:0; height:300px;  background:url("../images/tree_04.jpg") no-repeat; background-size:100% auto; z-index: 50;}
+.cv_swiper {height:100%; min-height:190px; color:#fff; }
+.cv_swiper_01 {position:absolute; left:0; top:0; right:0; height:250px;background:url("../images/tree_05.jpg") no-repeat; background-size:100% 100%; z-index: 50;}
+.cv_swiper_02 { position:absolute; left:0; top:0; right:0; height:250px;  background:url("../images/school.png") no-repeat; background-size:100% 100%; z-index: 50;}
+.cv_swiper_03 {position:absolute; left:0; top:0; right:0; height:250px;  background:url("../images/tree_04.jpg") no-repeat; background-size:100% 100%; z-index: 50;}
 .cv_swipe_title {  position: absolute; z-index: 100; color: #fff; text-align: right; font-size: 1em; }
 .cv_btn_search {position:fixed; right:5px; top:5px; width:30px; height:30px; font-weight:bold; font-size:.75rem;; background:url("../images/search_icon.png") no-repeat center center; background-size:100% auto; z-index:95;}
 .cv_swipe_title_02 { position: absolute; text-indent: 10px; z-index: 100; top: 180px; color: #fff; text-align: left; font-size: 1em; }
