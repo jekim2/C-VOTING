@@ -6,6 +6,8 @@ import { InitiativeComponent } from './initiative/initiative.component';
 import { InitiativeRegistrationComponent } from './initiative-registration/initiative-registration.component';
 import { VoteComponent } from './vote/vote.component';
 import { VoteDetailComponent } from './vote/vote-detail/vote-detail.component';
+import { CVotingSearchComponent } from './c-voting-search/c-voting-search.component';
+import { ReviewComponent } from './review/review.component';
 
 @NgModule({
   imports: [
@@ -15,8 +17,10 @@ import { VoteDetailComponent } from './vote/vote-detail/vote-detail.component';
   declarations: [
     InitiativeComponent,
     InitiativeRegistrationComponent,
+    ReviewComponent,
     VoteComponent,
-    VoteDetailComponent
+    VoteDetailComponent,
+    CVotingSearchComponent
   ]
 })
 export class MainDetailModule { }

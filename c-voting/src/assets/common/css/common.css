@@ -86,9 +86,9 @@ textarea::-webkit-input-placeholder {color:#c2c2c2;}
 	.cv_subWrap01 .cv_header, .cv_subWrap01 {position:fixed; z-index:100;}
 }
 
+
 .cv_hide {position:absolute !important; left:-10000px; top:-10000px; visibility:hidden;}
 .cv_none {display:none !important;}
-
 /* main 영역 */
 .cv_subWrap01 .cv_header { position:absolute; left:0; top:0; right:0; height:300px; background:#fff; }
 .cv_swiper {height:100%; min-height:300px; color:#fff; }
@@ -97,10 +97,14 @@ textarea::-webkit-input-placeholder {color:#c2c2c2;}
 .cv_swiper_03 {position:absolute; left:0; top:0; right:0; height:300px;  background:url("../images/tree_04.jpg") no-repeat; background-size:100% auto; z-index: 50;}
 .cv_swipe_title {  position: absolute; z-index: 100; color: #fff; text-align: right; font-size: 1em; }
 .cv_btn_search {position:fixed; right:5px; top:5px; width:30px; height:30px; font-weight:bold; font-size:.75rem;; background:url("../images/search_icon.png") no-repeat center center; background-size:100% auto; z-index:95;}
+.cv_swipe_title_02 { position: absolute; text-indent: 10px; z-index: 100; top: 180px; color: #fff; text-align: left; font-size: 1em; }
+.cv_swipe_title_02 > div { font-size: 0.8em; line-height: 2; }
+.cv_swipe_title_02 em { color: #fff; }
+.cv_swipe_title_02 p {font-size: 0.5em; float: right; margin-right: 60px; line-height: 4;}
 .cv_subWrap01 {position:relative; height:100%; min-height:450px; padding-top:58px; background:#fff;}
 .cv_topfixWrap {padding-top: 300px;}
 .webcontainer {position:relative; max-width:530px; margin:0 auto;}
-.cv_topfix {position:absolute; left:0; top:250px; right:0; background:#fff;  z-index:100;}
+.cv_topfix {position:fixed; left:0; top:250px; right:0; background:#fff;  z-index:100;}
 .tab01 ul {display:table; width:100%; border-collapse:collapse; -webkit-box-sizing:border-box; box-sizing:border-box;}
 .tab01 ul li {display:table-cell; width:50%; background:hsl(235, 100%, 17%); border:0 solid #fff; border-width:0 1px 1px;}
 .tab01 ul li:first-child {border-left:none;}
@@ -134,22 +138,29 @@ textarea::-webkit-input-placeholder {color:#c2c2c2;}
 .cv_sub_title { padding-left: 30px; font-size: 0.795em;}
 .cv_list_title .cv_ddaytit {color: #e50000; display: -webkit-box; font-size: 0.8em; text-indent: 1em; font-weight: bold; }
 .cv_list_title .cv_ddaytit_02 {display: block; line-height: 2; text-indent:0.5em; color:black; font-size: 0.65em; font-weight: normal; overflow: hidden; }
-.cv_total {  font-size: 0.5em; color: #808489; padding: 35px 0 0 5px;}
+.cv_total {  font-size: 0.5em; color: #5b5b5b; padding: 35px 0 0 5px;}
 .cv_contentsWrap > .cv_webcontainer .cv_tab_cont:nth-child(3) {margin-top:-10px;}
-.cv_tab_cont .cv_btn_yellow_check {position: absolute; width: 70px; height: 70px;  background:url("../images/no_name_check.png") no-repeat center center; background-size:100% auto; top:15%; right:-3px; }
+.cv_tab_cont .cv_btn_yellow_check {position: absolute; width: 70px; height: 70px;  background:url("../images/yellow_check.png") no-repeat center center; background-size:100% auto; top:15%; right:30px; }
 .cv_img > div {  position: absolute; z-index: 100; color: #fff; font-weight: bold; text-align: left; font-size: 0.5em; text-indent: 2px;}
-.cv_cont .cv_stacked_bar_graph { width: 100%; height: 38px; color:#414042;}
-.cv_stacked_bar_graph > span {	display: inline-block; height:100%; box-sizing: border-box; font-weight: bold; font-family: arial, sans-serif; 	  padding: 10px;}
-.cv_stacked_bar_graph .cv_bar_1 { background: #097c25; }
-.cv_stacked_bar_graph .cv_bar_2 { background: #da0505; }
-.cv_stacked_bar_graph .cv_bar_3 { background: #b7b7b7;}
-
-
+.cv_stacked_bar_graph { width: 90%; height: 15px; margin-left: 10px;}
+.cv_stacked_bar_graph span {  display: inline-block; height:100%; box-sizing: border-box; float: left; font-weight: bold; font-family: arial, sans-serif; padding: 10px;}
+.cv_stacked_bar_graph .cv_bar_1 { background: #097c25; color: #fff; font-size: 0.5em; border-radius: 5px 0px 0px 5px; }
+.cv_stacked_bar_graph .cv_bar_2 { background: #da0505; color: #fff; font-size: 0.5em; }
+.cv_stacked_bar_graph .cv_bar_3 { background: #b7b7b7; color: #fff; font-size: 0.5em; border-radius: 0px 5px 5px 0px;}
+.cv_stacked_bar_graph p { line-height: 2px; text-indent: -5px; }
 .btn_write {position:fixed; right:10px; bottom:25px; width:70px; height:70px; padding-top:2px; font-weight:bold; font-size:.75rem; color:#1796e2; background:url("../images/cv_write.png") no-repeat center center; background-size:100% auto; z-index:95;}
 .btn_write > span {position:absolute; text-indent:-999em; opacity:0;}
 .cv_balloon {  position:relative; margin: 50px; background: #000758; }
 .cv_balloon:after { content:""; position:absolute;border-top: 5px solid #000758; border-right: 5px solid transparent; border-left: 5px solid transparent; bottom: -4px; left: 60px; }
-
+/** 검색 영역 */
+.searchBox, searchBox input { padding: 20px; background: #fff; border: none; border-radius: 5px;}
+.searchBox .btn_search01 { top: 9px; right: 10px; height: 37px; width : 40px; }
+.searchBox input {  border-bottom: 1px solid #d2d2d2;  height: 40px; width: 85%; font-size: 1rem; line-height: 40px; background: #fff; }
+.searchBox button {background:url("../images/btn_gray_search.png") no-repeat center center; background-size:100% auto; width:30px; height:100%; text-indent:-9999em;}
+.cv_search_result .cv_tit { height: 29px; font-weight: normal; font-size: .75rem; color: #6d6d72; line-height: 29px;}
+.cv_search_result .cv_list01 li { position: relative;  border-bottom: 1px solid #bdbdbd; }
+.cv_search_result .cv_list01 li button { min-height: 47px; text-indent: 10px; }
+.cv_search_result .cv_no_result { text-align: center; padding: 20px; color:#bdbdbd;}
 /* contents 영역 */
 .cv_conWrap01 {position:relative;min-height:100%; background:#fff; height:100%;}
 .cv_contentsWrap {min-height:100%; padding:0px;}
@@ -157,6 +168,7 @@ textarea::-webkit-input-placeholder {color:#c2c2c2;}
 .padding16 {padding:16px;}
 .padding0 {padding:0px;}
 .cv_column {margin-bottom:10px;} 
+.cv_container01 {padding:25px;}
 
 /* bottom 영역*/
 .cv_botfixWrap {position:fixed; left:0; right:0; bottom:0; z-index: 50;}

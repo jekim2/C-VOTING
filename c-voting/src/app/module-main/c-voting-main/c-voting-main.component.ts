@@ -9,7 +9,7 @@ import Swiper from 'swiper';
 })
 export class CVotingMainComponent implements OnInit {
 
-  selected_menu = '/module/initiative';
+  selected_menu = 'initiative';
 
   constructor(
     private router: Router,
@@ -23,10 +23,10 @@ export class CVotingMainComponent implements OnInit {
         type: 'bullets'
       },
       speed: 400,
-      // autoplay: {
-      //   delay: 3000,
-      //   disableOnInteraction: false
-      // },
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+      },
       direction: 'horizontal',
       loop: true
     });
@@ -59,6 +59,9 @@ export class CVotingMainComponent implements OnInit {
         break;
       case '/module/vote':
         break;
+      case 'search' : 
+        
+        break;  
 
       default:
         break;

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VoteDetailComponent implements OnInit {
 
+  isRecommandlAlert = false;
+
   constructor() { }
 
   ngOnInit() {
