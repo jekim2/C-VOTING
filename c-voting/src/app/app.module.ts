@@ -11,6 +11,7 @@ import { VoteComponent } from './module-main-detail/vote/vote.component';
 import { VoteDetailComponent } from './module-main-detail/vote/vote-detail/vote-detail.component';
 import { CVotingSearchComponent } from './module-main-detail/c-voting-search/c-voting-search.component';
 import { MainDetailModule } from './module-main-detail/main-detail.module';
+import { SharedModule } from './module-shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MainDetailModule } from './module-main-detail/main-detail.module';
     RouterModule.forRoot(
       MainDetailRoutes
     ),
+    SharedModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

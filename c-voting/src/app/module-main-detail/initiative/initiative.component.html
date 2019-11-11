@@ -43,7 +43,7 @@
   <!-- bottom fix area -->
   <div class="cv_bottomFixWrap">
     <div class="btn_area">
-      <div class="cv_btn_star" (click)="isRecommandlAlert=true"><span>추천하기</span></div>
+      <button type="button" class="cv_btn_star" [class.on]="isRecommandlAlert" (click)="isRecommandlAlert=true"><span>추천하기</span></button>
     </div>
   </div>
   <!-- //bottom fix area -->
