@@ -169,6 +169,8 @@ textarea::-webkit-input-placeholder {color:#c2c2c2;}
 .cv_search_result .cv_list01 li { position: relative;  border-bottom: 1px solid #bdbdbd; }
 .cv_search_result .cv_list01 li button { min-height: 47px; text-indent: 10px; }
 .cv_search_result .cv_no_result { text-align: center; padding: 40px; color:#bdbdbd;}
+.highlight { color: #000758; font-weight: 600; }
+
 /* contents 영역 */
 .cv_conWrap01 {position:relative;min-height:100%; background:#fff; height:100%;}
 .cv_contentsWrap {min-height:100%; padding:0px;}

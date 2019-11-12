@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swiper from 'swiper';
+import { InitiativeList, ReviewList, VoteList } from '../../module-shared/constants/common.const';
 
 @Component({
   selector: 'app-c-voting-main',
@@ -16,6 +17,10 @@ export class CVotingMainComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    localStorage.setItem('initiativeList' , JSON.stringify(InitiativeList));
+    localStorage.setItem('reviewList' , JSON.stringify(ReviewList));
+    localStorage.setItem('voteList' , JSON.stringify(VoteList));
 
     const swiper = new Swiper('.swiper-container', {
       pagination: {

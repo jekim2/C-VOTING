@@ -17,11 +17,6 @@ import { SharedModule } from './module-shared/shared.module';
   declarations: [
     AppComponent,
     CVotingMainComponent,
-    // InitiativeComponent,
-    // InitiativeRegistrationComponent,
-    // VoteComponent,
-    // VoteDetailComponent,
-    // CVotingSearchComponent
   ],
   imports: [
     BrowserModule,

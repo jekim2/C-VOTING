@@ -8,10 +8,12 @@ import { VoteComponent } from './vote/vote.component';
 import { VoteDetailComponent } from './vote/vote-detail/vote-detail.component';
 import { CVotingSearchComponent } from './c-voting-search/c-voting-search.component';
 import { ReviewComponent } from './review/review.component';
+import { SharedModule } from '../module-shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    SharedModule,
     RouterModule.forChild(MainDetailRoutes)
   ],
   declarations: [
