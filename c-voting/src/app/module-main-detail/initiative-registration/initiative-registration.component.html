@@ -76,7 +76,7 @@
     </fieldset>
     <!-- bottom -->
     <div class="c_btn">
-      <button type="button" class="btn01" (click)="registration()"><span>완료</span></button>
+      <button type="button" class="btn01" (click)="validationCheck()"><span>완료</span></button>
       <button type="button" class="btn01" (click)="isCancelAlert=true"><span>취소</span></button>
     </div>
     <!-- //bottom -->
@@ -98,6 +98,46 @@
 		<div class="cv_popbtn">
 			<button type="button" (click)="movePage('main')"><span>확인</span></button><!-- 메인 화면으로 이동 -->
 			<button type="button" class="cv_btn_cancel" (click)="isCancelAlert=false"><span>취소</span></button>
+		</div>
+		<!-- //popup button -->
+	</div>
+	<!-- //popup box -->
+</div>
+<!-- //system popup style -->
+
+<!-- system popup style -->
+<div [class.cv_none]="!isAgreeAlert" class="cv_popWrap">
+	<!-- popup box -->
+	<div class="cv_popbox">
+		<!-- popup contents -->
+		<div class="cv_popcont">
+			<p>주의사항에 동의해주세요.</p>
+		</div>
+		<!-- //popup contents -->
+		
+		<!-- popup button -->
+		<div class="cv_popbtn">
+			<button type="button" (click)="isAgreeAlert=false"><span>확인</span></button>
+		</div>
+		<!-- //popup button -->
+	</div>
+	<!-- //popup box -->
+</div>
+<!-- //system popup style -->
+
+<!-- system popup style -->
+<div [class.cv_none]="!isValidationAlert" class="cv_popWrap">
+	<!-- popup box -->
+	<div class="cv_popbox">
+		<!-- popup contents -->
+		<div class="cv_popcont">
+			<p>{{ validationMsg }}</p>
+		</div>
+		<!-- //popup contents -->
+		
+		<!-- popup button -->
+		<div class="cv_popbtn">
+			<button type="button" (click)="isValidationAlert=false"><span>확인</span></button>
 		</div>
 		<!-- //popup button -->
 	</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { InitiativeList } from '../../module-shared/constants/common.const';
+import { LoadingService } from '../../module-shared/services/loading.service';
 
 declare var $: any;
 @Component({
@@ -11,12 +12,17 @@ declare var $: any;
 export class InitiativeRegistrationComponent implements OnInit {
 
   // Flag
-  isCancelAlert = false;         // 글쓰기 취소 팝업 Flag
-  isAgreeFlag = false;
-  initiativeList;               // 발의 가데이터 리스트
+  isCancelAlert = false;      // 글쓰기 취소 팝업 Flag
+  isAgreeAlert = false;       // 주의사항 동의 팝업 Flag
+  isValidationAlert = false;  // 유효성 체크 팝업 Flag
+
+  initiativeList;             // 발의 가데이터 리스트
+  validationMsg = '';         // 유효성 체크 alert msg
+
 
   constructor(
-    private router: Router
+    private router: Router,
+    private loading: LoadingService
   ) { }
 
   ngOnInit() {
@@ -24,17 +30,23 @@ export class InitiativeRegistrationComponent implements OnInit {
   }
 
   // 페이지 이동
-  movePage (menu: string) {
+  movePage (menu: string, idx: any) {
+    let param = {};
     switch (menu) {
       case 'main':
           menu = 'main';
+        break;
+
+      case 'initiativeDetail':
+        menu = 'initiative';
+        param = { idx : idx };
         break;
 
       default:
         break;
     }
 
-    this.router.navigate([menu]);
+    this.router.navigate([menu, param]);
   }
 
   // 동의 체크박스
@@ -46,17 +58,45 @@ export class InitiativeRegistrationComponent implements OnInit {
     }
   }
 
-  // 글 등록
-  registration() {
-    const that = this;
+  // value 값 체크
+  validationCheck() {
+    const writer = $('#wrtier').val().trim();
+    const subject = $('#subject').val().trim();
+    const content = $('#content').val();
+
     if (!$('#chkAgree').attr("checked")) {
-      alert('주의사항에 동의 해주세요.');
+      this.isAgreeAlert = true;
       return;
     }
 
-    const writer = $('#wrtier').val().trim();
-    const subject = $('#subject').val().trim();
-    const content = $('content').val();
+    // 작성자 체크
+    if (!writer) {
+      this.isValidationAlert = true;
+      this.validationMsg = '작성자를 입력해주세요.';
+      return;
+    }
+
+    // 제목 체크
+    if (!subject) {
+      this.isValidationAlert = true;
+      this.validationMsg = '제목을 입력해주세요.';
+      return;
+    }
+
+    // 내용 체크
+    if (!content) {
+      this.isValidationAlert = true;
+      this.validationMsg = '내용을 입력해주세요.';
+      return;
+    }
+
+    this.registration(writer, subject, content);
+  }
+
+  // 글 등록
+  registration(writer, subject, content) {
+//    this.loading.loadingBar_show('cvList01');
+
     const img = '';
     const today = new Date();
     let regDate, year, month, day, hours, minutes = '';
@@ -83,12 +123,15 @@ export class InitiativeRegistrationComponent implements OnInit {
     } else {
       const localInitiativeList: any = $.parseJSON(localStorage.getItem('initiativeList'));
       // 글 번호 재설정
-      posts[0].idx = localInitiativeList.length + 1;
-//      console.log("@@@ posts idx 재설정 >>> " + posts[0].idx);
+      posts[0].idx = localInitiativeList.length;
       localInitiativeList.push(posts);
       localStorage.setItem('initiativeList', JSON.stringify(localInitiativeList));
     }
 
-    // TODO: 등록 완료 후 등록한 게시글 상세로 이동
+    // setTimeout(() => {
+    //   this.loading.loadingBar_hide('cvList01');
+    // }, 300);
+
+    this.movePage('initiativeDetail', posts[0].idx);
   }
 }

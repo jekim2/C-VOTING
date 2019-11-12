@@ -278,7 +278,7 @@ header .btn_back {background:url("../images/btn_back.png") no-repeat center cent
 .cv_popWrap .cv_popcont .cv_c_btn {padding:0;}                        
 .cv_popcont > *:last-child {margin-bottom:0;}
 .cv_popWrap .cv_popbtn {min-height:25px; border-top:1px solid #dddfe2; border-radius:0 0 15px 15px; overflow:hidden;}
-.cv_popWrap .cv_popbtn > button {float:left; width:50%; height:40px; font-weight:500; color:#28397f; border-right:1px solid #dddfe2; font-size:.875rem;}
+.cv_popWrap .cv_popbtn > button {float:left; width:50%; height:45px; font-weight:500; color:#28397f; border-right:1px solid #dddfe2; font-size:.875rem;}
 .cv_popWrap .cv_popbtn > button:last-child {border:none;}
 .cv_popWrap .cv_popbtn > button:only-child {width:100%;}
 .cv_popWrap .cv_popbtn > button.cw_btn_cancel {font-weight:normal; color:#52535a;}
