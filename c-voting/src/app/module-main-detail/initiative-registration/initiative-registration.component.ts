@@ -68,7 +68,7 @@ export class InitiativeRegistrationComponent implements OnInit {
     regDate = year + month + day + hours + minutes;
 
     const posts = [{
-      idx : '',
+      idx : 0,
       writer : writer,
       subject : subject,
       content : content,
@@ -77,14 +77,18 @@ export class InitiativeRegistrationComponent implements OnInit {
       recommandCnt : 0
     }];
 
-    // 저장되어있는 localStroage postArr 확인
+    // 저장되어있는 발의 리스트 확인
     if (localStorage.getItem('initiativeList') === null || localStorage.getItem('initiativeList') === '[]') {
       localStorage.setItem('initiativeList', JSON.stringify(posts));
     } else {
       const localInitiativeList: any = $.parseJSON(localStorage.getItem('initiativeList'));
+      // 글 번호 재설정
+      posts[0].idx = localInitiativeList.length + 1;
+//      console.log("@@@ posts idx 재설정 >>> " + posts[0].idx);
       localInitiativeList.push(posts);
       localStorage.setItem('initiativeList', JSON.stringify(localInitiativeList));
     }
-    alert('등록 완료');
+
+    // TODO: 등록 완료 후 등록한 게시글 상세로 이동
   }
 }
