@@ -88,6 +88,8 @@ export const ReviewList = [
         agreePercent : 70,  // 찬성율
         oppPercent : 20,    // 반대율
         neutPercent : 10,   // 기타율
+        startDate : '20191112', // 심의 시작일
+        endDate : '20191126',   // 심의 마감일
         agreeCmtList : [{   // 찬성 댓글
             cmt_idx : 0,    // 댓글 idx
             writer : 'ㅇㅇㅇ(학부 재학생)',     // 댓글 작성자
@@ -135,6 +137,8 @@ export const ReviewList = [
         agreePercent : 70,  // 찬성율
         oppPercent : 20,    // 반대율
         neutPercent : 10,   // 기타율
+        startDate : '20191114', // 심의 시작일
+        endDate : '20191128',   // 심의 마감일
         agreeCmtList : [{
             cmt_idx : 0,
             writer : 'ㅇㅇㅇ(학부 재학생)',
@@ -188,6 +192,8 @@ export const ReviewList = [
         agreePercent : 70,  // 찬성율
         oppPercent : 20,    // 반대율
         neutPercent : 10,   // 기타율
+        startDate : '20191107', // 심의 시작일
+        endDate : '20191121',   // 심의 마감일
         agreeCmtList : [{
             cmt_idx : 0,
             writer : 'ㅇㅇㅇ(학부 재학생)',
@@ -223,6 +229,8 @@ export const ReviewList = [
         agreePercent : 70,  // 찬성율
         oppPercent : 20,    // 반대율
         neutPercent : 10,   // 기타율
+        startDate : '20191105', // 심의 시작일
+        endDate : '20191119',   // 심의 마감일
         agreeCmtList : [{
             cmt_idx : 0,
             writer : 'ㅇㅇㅇ(학부 재학생)',
