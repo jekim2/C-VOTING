@@ -89,6 +89,14 @@ textarea::-webkit-input-placeholder {color:#c2c2c2;}
 
 .cv_hide {position:absolute !important; left:-10000px; top:-10000px; visibility:hidden;}
 .cv_none {display:none !important;}
+.cv_cont_loading {position:relative; min-height:300px !important;}
+.cv_cont_loading:after {content:"loading contents"; position:absolute; left:50%; top:50%; width:25px; height:25px; margin:-12.5px 0 0 -12.5px; text-align:left; text-indent:-9999em; background:url("../images/loader.gif") no-repeat center center; background-size:100% auto;
+	-webkit-animation:loading 1s linear infinite; animation:loading 1s linear infinite; overflow:hidden;
+}
+.cv_cont_loading * {opacity:0;}
+.cv_cont_loading {height:120px;}
+.cv_search_result .cv_cont_loading {position:relative; min-height:450px !important; }
+
 /* main 영역 */
 .cv_subWrap01 .cv_header { position:absolute; left:0; top:0; right:0; height:300px; background:#fff; }
 .cv_swiper {height:100%; min-height:190px; color:#fff; }
@@ -100,7 +108,7 @@ textarea::-webkit-input-placeholder {color:#c2c2c2;}
 .cv_swipe_title_02 { position: absolute; text-indent: 10px; z-index: 100; top: 180px; color: #fff; text-align: left; font-size: 1em; }
 .cv_swipe_title_02 > div { font-size: 0.8em; line-height: 2; }
 .cv_swipe_title_02 em { color: #fff; }
-.cv_swipe_title_02 p {font-size: 0.5em; float: right; margin-right: 60px; line-height: 4;}
+.cv_swipe_title_02 p {font-size: 0.5em; float: right; margin-right: 60px; line-height: 3;}
 .cv_subWrap01 {position:relative; height:100%; min-height:450px; padding-top:58px; background:#fff;}
 .cv_topfixWrap {padding-top: 300px;}
 .webcontainer {position:relative; max-width:530px; margin:0 auto;}
@@ -160,7 +168,7 @@ textarea::-webkit-input-placeholder {color:#c2c2c2;}
 .cv_search_result .cv_tit { height: 29px; font-weight: normal; font-size: .75rem; color: #6d6d72; line-height: 29px;}
 .cv_search_result .cv_list01 li { position: relative;  border-bottom: 1px solid #bdbdbd; }
 .cv_search_result .cv_list01 li button { min-height: 47px; text-indent: 10px; }
-.cv_search_result .cv_no_result { text-align: center; padding: 20px; color:#bdbdbd;}
+.cv_search_result .cv_no_result { text-align: center; padding: 40px; color:#bdbdbd;}
 /* contents 영역 */
 .cv_conWrap01 {position:relative;min-height:100%; background:#fff; height:100%;}
 .cv_contentsWrap {min-height:100%; padding:0px;}
