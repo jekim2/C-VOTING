@@ -2,6 +2,7 @@
 export const InitiativeList = [
     {
         idx : 0,    // 글 번호
+        type : 'initiative',
         writer : '김민지(학부생)',  // 작성자
         subject : '공예분과를 위한 연습실을 설치해주세요.',    // 제목
         // tslint:disable-next-line:max-line-length
@@ -12,6 +13,7 @@ export const InitiativeList = [
     },
     {
         idx : 1,
+        type : 'initiative',
         writer : '김민지(학부생)',
         subject : '강의실 개선을 통해 다양한 강의실을 마련해주세요.',
         // tslint:disable-next-line:max-line-length
@@ -22,6 +24,7 @@ export const InitiativeList = [
     },
     {
         idx : 2,
+        type : 'initiative',
         writer : '김민지(학부생)',
         subject : '대학 축제 개선해주세요.',
         // tslint:disable-next-line:max-line-length
@@ -32,6 +35,7 @@ export const InitiativeList = [
     },
     {
         idx : 3,
+        type : 'initiative',
         writer : '김민지(학부생)',
         subject : '사회학과 교수 인력을 충원해주세요.',
         // tslint:disable-next-line:max-line-length
@@ -42,6 +46,7 @@ export const InitiativeList = [
     },
     {
         idx : 4,
+        type : 'initiative',
         writer : '김민지(학부생)',
         subject : '강의평가 강화가 필요하다고 생각합니다.',
         // tslint:disable-next-line:max-line-length
@@ -52,6 +57,7 @@ export const InitiativeList = [
     },
     {
         idx : 5,
+        type : 'initiative',
         writer : '김민지(학부생)',
         subject : '총장님과의 소통의 기회 확보',
         // tslint:disable-next-line:max-line-length
@@ -62,6 +68,7 @@ export const InitiativeList = [
     },
     {
         idx : 6,
+        type : 'initiative',
         writer : '김민지(학부생)',
         subject : '내 스타벅스 입점을 제안합니다!',
         // tslint:disable-next-line:max-line-length
@@ -77,6 +84,7 @@ export const InitiativeList = [
 export const ReviewList = [
     {
         idx : 0,
+        type : 'review',
         writer : '김민지(학부생)',
         subject : '자판기를 추가적으로 설치해주세요',
         // tslint:disable-next-line:max-line-length
@@ -126,6 +134,7 @@ export const ReviewList = [
     },
     {
         idx : 1,
+        type : 'review',
         writer : '김민지(학부생)',
         subject : '기숙사 각 층마다 전자레인지를 설치해주세요.',
         // tslint:disable-next-line:max-line-length
@@ -181,6 +190,7 @@ export const ReviewList = [
     },
     {
         idx : 2,
+        type : 'review',
         writer : '김민지(학부생)',
         subject : '학교서점 폐업에 따른 새로운 방안을 요구합니다!',
         // tslint:disable-next-line:max-line-length
@@ -218,6 +228,7 @@ export const ReviewList = [
     },
     {
         idx : 3,
+        type : 'review',
         writer : '김민지(학부생)',
         subject : '공대 지원이 시급합니다.',
         // tslint:disable-next-line:max-line-length
@@ -278,6 +289,7 @@ export const ReviewList = [
 export const VoteList = [
     {
         idx : 0,
+        type : 'vote',
         writer : '김민지(학부생)',
         subject : '후문 계단을 안전하게 만들어 주세요.',
         // tslint:disable-next-line:max-line-length
@@ -291,6 +303,7 @@ export const VoteList = [
     },
     {
         idx : 1,
+        type : 'vote',
         writer : '김민지(학부생)',
         subject : '셔틀버스 재개해 주세요.',
         // tslint:disable-next-line:max-line-length

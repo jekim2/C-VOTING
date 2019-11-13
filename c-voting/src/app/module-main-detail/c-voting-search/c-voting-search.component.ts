@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { LoadingService } from '../../module-shared/services/loading.service';
 import { ShareService } from '../../module-shared/services/share.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-c-voting-search',
@@ -15,6 +16,8 @@ export class CVotingSearchComponent implements OnInit {
 
 
   constructor(
+    private router: Router,
+    private zone: NgZone,
     private loading: LoadingService,
     private shareService: ShareService
   ) { }
@@ -89,6 +92,21 @@ export class CVotingSearchComponent implements OnInit {
     }
   }
 
+  // 검색 상세
+  searchDetail (item) {
+    console.log('item >>>>>>>>>  '  +  JSON.stringify(item));
+
+    let menu_url = '';
+    if (item.type === 'initiative') {
+      menu_url = 'initiative';
+    } else if (item.type === 'review') {
+
+    } else if (item.type === 'vote') {
+      menu_url = 'vote';
+    }
+    this.zone.run(() => this.router.navigate([menu_url, item]));
+  }
+
   onClickNavigateMenu (menu: string , value?: any) {
     console.log('menu >>>> ' + menu);
     console.log('length >>>> ' + value);
@@ -108,9 +126,6 @@ export class CVotingSearchComponent implements OnInit {
           this.searchInput.nativeElement.value = '';
           this.searchResult = [];
         }
-        break;
-
-      default:
         break;
     }
   }
