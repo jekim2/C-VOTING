@@ -99,10 +99,11 @@ textarea::-webkit-input-placeholder {color:#c2c2c2;}
 
 /* main 영역 */
 .cv_subWrap01 .cv_header { position:absolute; left:0; top:0; right:0; height:300px; background:#fff; }
-.cv_swiper {height:100%; min-height:190px; color:#fff; }
-.cv_swiper_01 {position:absolute; left:0; top:0; right:0; height:250px;background:url("../images/posts/img_basic.jpg") no-repeat; background-size:100% 100%; z-index: 50;}
+.cv_swiper {height:100%; min-height:190px; color:#fff;}
+.cv_swiper > img {position:absolute; left:0; top:0; right:0; height:250px; background-size:100% 100%; z-index: 50;}
+/* .cv_swiper_01 {position:absolute; left:0; top:0; right:0; height:250px;background:url("../images/posts/img_basic.jpg") no-repeat; background-size:100% 100%; z-index: 50;}
 .cv_swiper_02 { position:absolute; left:0; top:0; right:0; height:250px;  background:url("../images/school.png") no-repeat; background-size:100% 100%; z-index: 50;}
-.cv_swiper_03 {position:absolute; left:0; top:0; right:0; height:250px;  background:url("../images/tree_04.jpg") no-repeat; background-size:100% 100%; z-index: 50;}
+.cv_swiper_03 {position:absolute; left:0; top:0; right:0; height:250px;  background:url("../images/tree_04.jpg") no-repeat; background-size:100% 100%; z-index: 50;} */
 .cv_swipe_title {  position: absolute; z-index: 100; color: #fff; text-align: right; font-size: 1em; }
 .cv_btn_search {position:fixed; right:5px; top:5px; width:30px; height:30px; font-weight:bold; font-size:.75rem;; background:url("../images/search_icon.png") no-repeat center center; background-size:100% auto; z-index:95;}
 .cv_swipe_title_02 { position: absolute; text-indent: 10px; z-index: 100; top: 180px; color: #fff; text-align: left; font-size: 1em; }
@@ -127,8 +128,12 @@ textarea::-webkit-input-placeholder {color:#c2c2c2;}
 .tab01.st02 li {width:auto;}
 .tab01.st02 button {min-width:4em; white-space:nowrap;}
 .cv_contentsWrap, .cw_contentsWrap > .cw_webcontainer {height:100%; overflow:auto; -webkit-overflow-scrolling:touch;}
-.cv_list_title { position: relative ; border-bottom: 1px solid #c0c0c0; padding: 0 0 5px 20px;}
-.cv_list_title .cv_btn_star > p {display:block; color:black; font-size: 0.65em; padding-left: 15px; text-indent: 0.2em; line-height: 1px;}
+.cv_title_02 { position: relative; width: 100%; text-align: left;  padding-left: 15px; }
+.cv_title_02 .cv_btn_star {position: relative; width: 15px; height: 15px; vertical-align: top; line-height: 120%; bottom: 1px;}
+.cv_title_02 .cv_btn_star p { margin-left: 15px; }
+.cv_title_02 span {padding-left: 20px; }
+.cv_list_title { position: relative ;text-align: left; right: 90px; bottom: 3px; }
+.cv_list_title .cv_btn_star > p {display:block; color:black; font-size: 0.65em; padding-left: 15px; text-indent: 0.2em; bottom: 2px;}
 .cv_list_title strong { display: block; text-indent:4em; color:black; font-size: 0.65em; font-weight: normal; overflow: hidden; }
 .cv_list_title strong > div { position: absolute; top: 0; height: 100%; overflow: hidden;}
 .cv_main_list { border-bottom:1px solid #c0c0c0;}
@@ -168,6 +173,7 @@ textarea::-webkit-input-placeholder {color:#c2c2c2;}
 .cv_search_result .cv_tit { height: 29px; font-weight: normal; font-size: .75rem; color: #6d6d72; line-height: 29px;}
 .cv_search_result .cv_list01 li { position: relative;  border-bottom: 1px solid #bdbdbd; }
 .cv_search_result .cv_list01 li button { min-height: 47px; text-indent: 10px; }
+.cv_search_result .cv_list01 li.cv_on { background-color: tomato; }
 .cv_search_result .cv_no_result { text-align: center; padding: 40px; color:#bdbdbd;}
 .highlight { color: #000758; font-weight: 600; }
 
@@ -207,6 +213,9 @@ textarea::-webkit-input-placeholder {color:#c2c2c2;}
 -webkit-box-pack: center; -ms-flex-pack: center; -webkit-justify-content: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center; }
 .swiper-container-horizontal>.swiper-pagination-bullets {bottom:60px !important;}
 .swiper-pagination .swiper-pagination-bullet {display:inline-block; width:6px; height:6px; margin:0 4px; text-indent:-9999em; border-radius:50%;  background-color: #fff;}
+.swiper-max-height { max-height: 20px;  border-bottom: 1px solid #c0c0c0; }
+.swiper-oh { overflow: auto; }
+.swiper-slide-v { height: 40px; font-size: 5px;}
 
 /* initiative registration */
 .catuionBox, .writeForm01 {color:#c4c4c4;}

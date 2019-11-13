@@ -1,7 +1,7 @@
 
 <div class="cv_subWrap01 cv_topfixWrap">
   <div class="cv_header">
-    <div class="swiper-container">
+    <div class="swiper-container swiper-container-01">
       <div class="cv_swipe_title">C-VOTING</div>
       <div class="cv_swipe_title_02">
         <span>후문 계단을 안전하게 만들어주세요.</span>
@@ -10,13 +10,13 @@
       <div class="cv_btn_search" (click)="onClickNavigateMenu('search')"></div>
         <ul class="swiper-wrapper">
           <li class="swiper-slide">
-            <div class="cv_swiper cv_swiper_03"></div>
+            <div class="cv_swiper"><img src = "../../../assets/common/images/tree_04.jpg"></div>
           </li>
           <li class="swiper-slide">
-            <div class="cv_swiper cv_swiper_02"></div>
+            <div class="cv_swiper"><img src = "../../../assets/common/images/school.png" alt="filter image"></div>
           </li>
           <li class="swiper-slide">
-            <div class="cv_swiper cv_swiper_01"></div>
+            <div class="cv_swiper"><img src ="../../../assets/common/images/posts/img_basic_02.jpg" alt="filter image"></div>
           </li>
           </ul>
         <div class="swiper-pagination"></div>
@@ -42,9 +42,27 @@
     <div class="cv_webcontainer">
       <!-- 발의 -->
       <div [class.cv_none]="selected_menu !== 'initiative'" class="cv_tab_cont">
-        <div class="cv_list_title">
-          <button class="cv_btn_star"><p>135</p></button>
-          <strong>셔틀버스를 재게해 주세요.</strong>
+        <div class="v-swiper-container swiper-max-height swiper-oh">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide swiper-slide-v">
+                <div class="cv_title_02">
+                    <button class="cv_btn_star"><p>135</p></button>
+                    <span>셔틀버스를 재게해 주세요.</span>
+                </div>
+              </div>
+              <div class="swiper-slide swiper-slide-v">
+                  <div class="cv_title_02">
+                      <button class="cv_btn_star"><p>135</p></button>
+                      <span>강의실 개선을 통해 다양한 강의실을 마련해주세요.</span>
+                  </div>
+              </div>
+              <div class="swiper-slide swiper-slide-v">
+                <div class="cv_title_02">
+                    <button class="cv_btn_star"><p>199</p></button>
+                    <span>대학 축제 개선해주세요.</span>
+                </div>
+              </div>
+            </div>
         </div>
         <ul class="cv_main_list">
           <li>

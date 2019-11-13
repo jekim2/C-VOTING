@@ -22,18 +22,31 @@ export class CVotingMainComponent implements OnInit {
     localStorage.setItem('reviewList' , JSON.stringify(ReviewList));
     localStorage.setItem('voteList' , JSON.stringify(VoteList));
 
-    const swiper = new Swiper('.swiper-container', {
+    const swiper = new Swiper('.swiper-container-01', {
       pagination: {
         el: '.swiper-pagination',
         type: 'bullets'
       },
       speed: 400,
-      // autoplay: {
-      //   delay: 3000,
-      //   disableOnInteraction: false
-      // },
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+      },
       direction: 'horizontal',
       loop: true
+    });
+
+    const swiper_02 = new Swiper ('.v-swiper-container', {
+      loop: true,
+      direction: 'vertical',
+      slidesPerView: 1,
+      freeMode: true,
+      autoHeight: true,
+      grabCursor: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+      }
     });
   }
 
