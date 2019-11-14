@@ -3,7 +3,7 @@
   <header class="cv_title">
     <h3 class="cv_tit">발의</h3>
     <div class="cv_head_left">
-      <button type="button" class="btn_back"><span>Previous</span></button>
+      <button type="button" class="btn_back" (click)="onClickNavigateMenu('back')"><span>Previous</span></button>
     </div>
   </header>
   <!-- //header area -->
@@ -12,29 +12,22 @@
   <div class="cv_contentsWrap padding16">
     <!-- detail info -->
     <div class="cv_column cv_detail_info">
-      <div class="subject"><span>셔틀버스 재개해주세요.</span></div>
+      <div class="subject"><span>{{ subject }}</span></div>
       <div class="cv_reg_info">
-        <div class="name"><span>김민지(학부생)</span></div>
-        <div class="date"><span>10/10 21:08</span></div>
-        <div class="cv_btn_star"><p>199</p></div>
+        <div class="name"><span>{{ writer }}</span></div>
+        <div class="date"><span>{{ regDate }}</span></div>
+        <div class="cv_btn_star"><p>{{ recommandCnt }}</p></div>
       </div>
     </div>
     <!-- //detail info -->
 
     <!-- detail image -->
-    <div class="cv_column cv_detail_img"><img src = "../../../assets/common/images/tree_04.jpg" alt="detail image"></div>
+    <div [class.cv_none]="detailImg == ''" class="cv_column cv_detail_img"><img src="{{ detailImg }}" alt="detail image"></div>
     <!-- //detail image -->
 
     <!-- detail contents -->
     <div class="cv_column cv_detail_txt">
-      <p>여름방학을 보내는 동안 셔틀버스 운행 종료라는 갑작스러운 소식을 듣게되었습니다. 방학에도 근로 때문에 도서관을 갈 일이 있는 저는 막막해졌습니다. 
-        셔틀버스는 그동안 많은 학생들의 이동수단이었습니다. 비록 역에서 학교를 오가는 짧은 거리이고 셔틀비도 내야 하지만 많은 학생들이 이용하는 것을
-      봐왔습니다. 학생들뿐만 아니라 교직원분들도 사용하셨습니다. 그런 셔틀버스를 교직원, 학생들과 논의하지 않은 채 종료시킨 것은 문제가 있다고 봅니다.
-      여름방학을 보내는 동안 셔틀버스 운행 종료라는 갑작스러운 소식을 듣게되었습니다. 방학에도 근로 때문에 도서관을 갈 일이 있는 저는 막막해졌습니다. 
-      셔틀버스는 그동안 많은 학생들의 이동수단이었습니다. 비록 역에서 학교를 오가는 짧은 거리이고 셔틀비도 내야 하지만 많은 학생들이 이용하는 것을
-    봐왔습니다. 학생들뿐만 아니라 교직원분들도 사용하셨습니다. 그런 셔틀버스를 교직원, 학생들과 논의하지 않은 채 종료시킨 것은 문제가 있다고 봅니다.여름방학을 보내는 동안 셔틀버스 운행 종료라는 갑작스러운 소식을 듣게되었습니다. 방학에도 근로 때문에 도서관을 갈 일이 있는 저는 막막해졌습니다. 
-    셔틀버스는 그동안 많은 학생들의 이동수단이었습니다. 비록 역에서 학교를 오가는 짧은 거리이고 셔틀비도 내야 하지만 많은 학생들이 이용하는 것을
-  봐왔습니다. 학생들뿐만 아니라 교직원분들도 사용하셨습니다. 그런 셔틀버스를 교직원, 학생들과 논의하지 않은 채 종료시킨 것은 문제가 있다고 봅니다.</p>
+      <p [innerHTML]='content'></p>
     </div>
     <!-- //detail contents -->
   </div>
@@ -43,14 +36,14 @@
   <!-- bottom fix area -->
   <div class="cv_bottomFixWrap">
     <div class="btn_area">
-      <button type="button" class="cv_btn_star" [class.on]="isRecommandlAlert" (click)="isRecommandlAlert=true"><span>추천하기</span></button>
+      <button type="button" class="cv_btn_star" [class.on]="isRecommendFlag" (click)="isRecommendAlert=true"><span>추천하기</span></button>
     </div>
   </div>
   <!-- //bottom fix area -->
 </div>
 
 <!-- system popup style -->
-<div [class.cv_none]="!isRecommandlAlert" class="cv_popWrap">
+<div [class.cv_none]="!isRecommendAlert" class="cv_popWrap">
 	<!-- popup box -->
 	<div class="cv_popbox">
 		<!-- popup contents -->
@@ -61,8 +54,8 @@
 		
 		<!-- popup button -->
 		<div class="cv_popbtn">
-			<button type="button"><span>확인</span></button>
-			<button type="button" class="cv_btn_cancel" (click)="isRecommandlAlert=false"><span>취소</span></button>
+			<button type="button" (click)="recommend()"><span>확인</span></button>
+			<button type="button" class="cv_btn_cancel" (click)="isRecommendAlert=false; isRecommendFlag=false;"><span>취소</span></button>
 		</div>
 		<!-- //popup button -->
 	</div>

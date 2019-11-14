@@ -30,7 +30,7 @@ export class InitiativeRegistrationComponent implements OnInit {
   }
 
   // 페이지 이동
-  movePage (menu: string, idx: any) {
+  movePage (menu: string, infos: any) {
     let param = {};
     switch (menu) {
       case 'main':
@@ -39,7 +39,7 @@ export class InitiativeRegistrationComponent implements OnInit {
 
       case 'initiativeDetail':
         menu = 'initiative';
-        param = { idx : idx };
+        param = { infos };
         break;
 
       default:
@@ -107,7 +107,7 @@ export class InitiativeRegistrationComponent implements OnInit {
     minutes = today.getMinutes() < 10 ? "0" + today.getMinutes().toString() : today.getMinutes().toString();
     regDate = year + month + day + hours + minutes;
 
-    const posts = [{
+    const posts = {
       idx : 0,
       writer : writer,
       subject : subject,
@@ -115,16 +115,26 @@ export class InitiativeRegistrationComponent implements OnInit {
       regDate : regDate,
       img : img,
       recommandCnt : 0
-    }];
+    };
 
     // 저장되어있는 발의 리스트 확인
     if (localStorage.getItem('initiativeList') === null || localStorage.getItem('initiativeList') === '[]') {
       localStorage.setItem('initiativeList', JSON.stringify(posts));
     } else {
       const localInitiativeList: any = $.parseJSON(localStorage.getItem('initiativeList'));
+
       // 글 번호 재설정
-      posts[0].idx = localInitiativeList.length;
-      localInitiativeList.push(posts);
+      posts.idx = localInitiativeList.length;
+      localInitiativeList.push({
+        idx :  posts.idx,
+        writer :  posts.writer,
+        subject :  posts.subject,
+        content :  posts.content,
+        regDate :  posts.regDate,
+        img :  posts.img,
+        recommandCnt :  posts.recommandCnt
+      });
+
       localStorage.setItem('initiativeList', JSON.stringify(localInitiativeList));
     }
 
@@ -132,6 +142,6 @@ export class InitiativeRegistrationComponent implements OnInit {
     //   this.loading.loadingBar_hide('cvList01');
     // }, 300);
 
-    this.movePage('initiativeDetail', posts[0].idx);
+    this.movePage('initiativeDetail', JSON.stringify(posts));
   }
 }
