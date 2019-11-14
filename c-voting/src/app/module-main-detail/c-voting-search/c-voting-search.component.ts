@@ -104,7 +104,7 @@ export class CVotingSearchComponent implements OnInit {
     } else if (item.type === 'vote') {
       menu_url = 'vote';
     }
-    this.zone.run(() => this.router.navigate([menu_url, item]));
+    this.zone.run(() => this.router.navigate([menu_url, { infos : JSON.stringify(item) }]));
   }
 
   onClickNavigateMenu (menu: string , value?: any) {
