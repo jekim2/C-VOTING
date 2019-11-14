@@ -3,15 +3,17 @@ import { CommonModule } from '@angular/common';
 import { LoadingService } from './services/loading.service';
 import { ShareService } from './services/share.service';
 import { HighlightPipe } from './pipes/highlight.pipe';
+import { EnterToBrPipe } from './pipes/enterToBr.pipe';
 
 @NgModule({
   imports: [
     CommonModule
   ],
   exports : [
-    HighlightPipe
+    HighlightPipe,
+    EnterToBrPipe
   ],
-  declarations: [HighlightPipe]
+  declarations: [HighlightPipe, EnterToBrPipe]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
