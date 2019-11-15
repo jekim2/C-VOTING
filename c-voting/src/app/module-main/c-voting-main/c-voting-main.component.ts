@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swiper from 'swiper';
-import { InitiativeList, ReviewList, VoteList } from '../../module-shared/constants/common.const';
+import { InitiativeList, ReviewList, VoteList } from '../../../app/module-shared/constants/common.const';
+import { ShareService } from '../../module-shared/services/share.service';
+
+declare var $: any;
+declare var cVotingUtil: any;
 
 @Component({
   selector: 'app-c-voting-main',
@@ -12,15 +16,38 @@ export class CVotingMainComponent implements OnInit {
 
   selected_menu = 'initiative';
 
+  initiativeList = [];      // 발의
+  reviewList = [];          // 심의
+  voteList = [];            // 의결
+
   constructor(
     private router: Router,
+    private shareService: ShareService
   ) { }
 
   ngOnInit() {
 
-    localStorage.setItem('initiativeList' , JSON.stringify(InitiativeList));
-    localStorage.setItem('reviewList' , JSON.stringify(ReviewList));
-    localStorage.setItem('voteList' , JSON.stringify(VoteList));
+
+    if (!this.shareService.nullCheck(InitiativeList)) {
+      localStorage.setItem('initiativeList' , JSON.stringify(InitiativeList));
+
+      this.initiativeList = $.parseJSON(localStorage.getItem("initiativeList"));
+    }
+
+    if (!this.shareService.nullCheck(ReviewList)) {
+      localStorage.setItem('reviewList' , JSON.stringify(ReviewList));
+
+      this.reviewList = $.parseJSON(localStorage.getItem("reviewList"));
+
+      console.log("reviewList >>>>>>>>>>> " , JSON.stringify(this.reviewList));
+    }
+
+    if (!this.shareService.nullCheck(VoteList)) {
+      localStorage.setItem('voteList' , JSON.stringify(VoteList));
+
+      this.voteList = $.parseJSON(localStorage.getItem("VoteList"));
+    }
+
 
     const swiper = new Swiper('.swiper-container-01', {
       pagination: {
@@ -64,14 +91,18 @@ export class CVotingMainComponent implements OnInit {
     this.router.navigate([menu]);
   }
 
-  onClickNavigateMenu (menu: string) {
+  onClickNavigateMenu (menu: string, data?: any) {
     console.log('menu >>>> ' + menu);
 
     this.selected_menu = menu;
-    this.router.navigate([menu]);
+
+    if (menu!== 'review') {
+      this.router.navigate([menu]);
+    }
 
     switch (menu) {
-      case '/module/initiative':
+      case 'review':
+        cVotingUtil.showDiscussionPage(data);
         break;
       case '/module/review':
         break;

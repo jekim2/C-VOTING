@@ -7,6 +7,7 @@ declare var $: any;
   templateUrl: './initiative.component.html',
   styleUrls: ['./initiative.component.css']
 })
+
 export class InitiativeComponent implements OnInit {
 
   isRecommendAlert = false;    // 추천 팝업 Flag

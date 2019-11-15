@@ -12,6 +12,7 @@ import { VoteDetailComponent } from './module-main-detail/vote/vote-detail/vote-
 import { CVotingSearchComponent } from './module-main-detail/c-voting-search/c-voting-search.component';
 import { MainDetailModule } from './module-main-detail/main-detail.module';
 import { SharedModule } from './module-shared/shared.module';
+import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -22,14 +23,14 @@ import { SharedModule } from './module-shared/shared.module';
     BrowserModule,
     MainDetailModule,
     RouterModule.forRoot(
-      AppRoutes
+      AppRoutes,{useHash: true}
     ),
     RouterModule.forRoot(
-      MainDetailRoutes
+      MainDetailRoutes,{useHash: true}
     ),
     SharedModule.forRoot(),
   ],
-  providers: [],
+  providers:[{provide: APP_BASE_HREF, useValue : '/' }, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

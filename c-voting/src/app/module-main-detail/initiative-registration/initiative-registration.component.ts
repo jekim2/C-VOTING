@@ -30,7 +30,7 @@ export class InitiativeRegistrationComponent implements OnInit {
   }
 
   // 페이지 이동
-  movePage (menu: string, infos: any) {
+  movePage (menu: string, infos?: any) {
     let param = {};
     switch (menu) {
       case 'main':
