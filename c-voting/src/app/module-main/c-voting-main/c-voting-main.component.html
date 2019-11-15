@@ -130,9 +130,9 @@
                   </div>
                   <!--그래프-->
                   <div class="cv_stacked_bar_graph">
-                    <span style="width:75%" class="cv_bar_1"><p>75%</p></span>
-                    <span style="width:15%" class="cv_bar_2"><p>15%</p></span>
-                    <span style="width:10%" class="cv_bar_3"><p>10%</p></span>
+                    <span [style.width.%]="item.agreePercent" class="cv_bar_1"><p>{{ item.agreePercent }}%</p></span>
+                    <span [style.width.%]="item.oppPercent" class="cv_bar_2"><p>{{ item.oppPercent }}%</p></span>
+                    <span [style.width.%]="item.neutPercent" class="cv_bar_3"><p>{{ item.neutPercent }}%</p></span>
                   </div>
                   <!--//그래프-->
                 </div>

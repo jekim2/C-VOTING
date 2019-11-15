@@ -93,7 +93,7 @@ export const ReviewList = [
         img : 'img_review_00.jpg',
         recommandCnt : 0,
         totalPartiCnt : 237, // 총 참여수
-        agreePercent : 70,  // 찬성율
+        agreePercent : 60,  // 찬성율
         oppPercent : 20,    // 반대율
         neutPercent : 10,   // 기타율
         startDate : '20191112', // 심의 시작일

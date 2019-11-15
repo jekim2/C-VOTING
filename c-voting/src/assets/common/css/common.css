@@ -155,7 +155,7 @@ textarea::-webkit-input-placeholder {color:#c2c2c2;}
 .cv_contentsWrap > .cv_webcontainer .cv_tab_cont:nth-child(3) {margin-top:-10px;}
 .cv_tab_cont .cv_btn_yellow_check {position: absolute; width: 70px; height: 70px;  background:url("../images/yellow_check.png") no-repeat center center; background-size:100% auto; top:15%; right:30px; }
 .cv_img > div {  position: absolute; z-index: 100; color: #fff; font-weight: bold; text-align: left; font-size: 0.5em; text-indent: 2px;}
-.cv_stacked_bar_graph { width: 90%; height: 15px; margin-left: 10px;}
+.cv_stacked_bar_graph { width: 90%; height: 15px; margin-left: 10px; display: inline-flex;}
 .cv_stacked_bar_graph span {  display: inline-block; height:100%; box-sizing: border-box; float: left; font-weight: bold; font-family: arial, sans-serif; padding: 10px;}
 .cv_stacked_bar_graph .cv_bar_1 { background: #097c25; color: #fff; font-size: 0.5em; border-radius: 5px 0px 0px 5px; }
 .cv_stacked_bar_graph .cv_bar_2 { background: #da0505; color: #fff; font-size: 0.5em; }
