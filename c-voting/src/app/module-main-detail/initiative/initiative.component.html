@@ -15,7 +15,7 @@
       <div class="subject"><span>{{ subject }}</span></div>
       <div class="cv_reg_info">
         <div class="name"><span>{{ writer }}</span></div>
-        <div class="date"><span>{{ regDate }}</span></div>
+        <div class="date"><span>{{ regDate | dateFormat:'mmddhhss' }}</span></div>
         <div class="cv_btn_star"><p>{{ recommandCnt }}</p></div>
       </div>
     </div>

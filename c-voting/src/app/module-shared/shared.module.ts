@@ -4,6 +4,7 @@ import { LoadingService } from './services/loading.service';
 import { ShareService } from './services/share.service';
 import { HighlightPipe } from './pipes/highlight.pipe';
 import { EnterToBrPipe } from './pipes/enterToBr.pipe';
+import { EnterFormatPipe } from './pipes/dateFormat.pipe';
 
 @NgModule({
   imports: [
@@ -11,9 +12,10 @@ import { EnterToBrPipe } from './pipes/enterToBr.pipe';
   ],
   exports : [
     HighlightPipe,
-    EnterToBrPipe
+    EnterToBrPipe,
+    EnterFormatPipe
   ],
-  declarations: [HighlightPipe, EnterToBrPipe]
+  declarations: [HighlightPipe, EnterToBrPipe, EnterFormatPipe]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
