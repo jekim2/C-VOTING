@@ -3,22 +3,16 @@
   <div class="cv_header">
     <div class="swiper-container swiper-container-01">
       <div class="cv_swipe_title">C-VOTING</div>
-      <div class="cv_swipe_title_02">
-        <span>후문 계단을 안전하게 만들어주세요.</span>
-        <div>현재 찬 <em>75%</em> 반 <em>25%</em><p> 2019.11.01 ~ 2019.11.14</p></div>
-      </div>
       <div class="cv_btn_search" (click)="onClickNavigateMenu('search')"></div>
-        <ul class="swiper-wrapper">
-          <li class="swiper-slide">
-            <div class="cv_swiper"><img src ="assets/common/images/tree_04.jpg"></div>
+        <ul  class="swiper-wrapper">
+          <li *ngFor="let item of reviewTopList" class="swiper-slide">
+            <div class="cv_swipe_title_02">
+              <span>{{ item.subject }}</span>
+              <div>현재 찬 <em>{{ item.agreePercent }}%</em> 반 <em>{{ item.oppPercent }}%</em><p>{{ item.startDate  | dateFormat:'yyyy.mm.dd' }} ~ {{ item.endDate  | dateFormat:'yyyy.mm.dd' }}</p></div>
+            </div>
+            <div class="cv_swiper"><img src ="assets/common/images/posts/{{ item.img }}"></div>
           </li>
-          <li class="swiper-slide">
-            <div class="cv_swiper"><img src ="assets/common/images/school.png" alt="filter image"></div>
-          </li>
-          <li class="swiper-slide">
-            <div class="cv_swiper"><img src ="assets/common/images/posts/img_basic_02.jpg" alt="filter image"></div>
-          </li>
-          </ul>
+        </ul>
         <div class="swiper-pagination"></div>
     </div>
   </div>
@@ -44,59 +38,28 @@
       <div [class.cv_none]="selected_menu !== 'initiative'" class="cv_tab_cont">
         <div class="v-swiper-container swiper-max-height swiper-oh">
             <div class="swiper-wrapper">
-              <div class="swiper-slide swiper-slide-v">
+              <div *ngFor="let index of initiativeTopList" class="swiper-slide swiper-slide-v">
                 <div class="cv_title_02">
-                    <button class="cv_btn_star"><p>135</p></button>
-                    <span>셔틀버스를 재게해 주세요.</span>
-                </div>
-              </div>
-              <div class="swiper-slide swiper-slide-v">
-                  <div class="cv_title_02">
-                      <button class="cv_btn_star"><p>135</p></button>
-                      <span>강의실 개선을 통해 다양한 강의실을 마련해주세요.</span>
-                  </div>
-              </div>
-              <div class="swiper-slide swiper-slide-v">
-                <div class="cv_title_02">
-                    <button class="cv_btn_star"><p>199</p></button>
-                    <span>대학 축제 개선해주세요.</span>
+                    <button class="cv_btn_star"><p>{{ index.recommandCnt }}</p></button>
+                    <span>{{ index.subject }}</span>
                 </div>
               </div>
             </div>
         </div>
-        <ul class="cv_main_list">
-          <li>
+        <ul *ngFor="let index of initiativeList" class="cv_main_list">
+          <li [attr.initiativeData]="index | json" (click)="onClickNavigateMenu('initiative', index)">
             <div class="cv_info">
               <!-- notice image -->
               <div class="cv_img">
-                <span><img src = "assets/common/images/no_img.png" alt="filter image"></span>
+                <span><img src = "assets/common/images/posts/{{ index.img }}" alt="filter image"></span>
               </div>
               <!-- //notice image -->
               <!-- notice contents -->
               <div class="cv_cont">
                 <div>
                   <div class="cv_tit">
-                    <strong>밤에 건물 불을 켜주세요.</strong>
-                    <div class="cv_btn_star"><p>135</p></div>
-                  </div>
-                </div>
-              </div>
-              <!-- //notice contents -->
-            </div>
-          </li>
-          <li>
-            <div class="cv_info">
-              <!-- notice image -->
-              <div class="cv_img">
-                <span><img src = "assets/common/images/no_img.png" alt="filter image"></span>
-              </div>
-              <!-- //notice image -->
-              <!-- notice contents -->
-              <div class="cv_cont">
-                <div>
-                  <div class="cv_tit">
-                    <strong>밤에 건물 불을 켜주세요.</strong>
-                    <div class="cv_btn_star"><p>135</p></div>
+                    <strong>{{ index.subject }}</strong>
+                    <div class="cv_btn_star"><p>{{ index.recommandCnt }}</p></div>
                   </div>
                 </div>
               </div>
@@ -111,7 +74,7 @@
       <div [class.cv_none]="selected_menu !== 'review'" class="cv_tab_cont">
 
         <div class="cv_title_02 gray_bottom">
-          <strong class="cv_ddaytit">D-<span>7</span><span class="cv_ddaytit_02">기숙사 안전 점검을 정기화 해주세요.</span></strong>
+          <strong class="cv_ddaytit">D-<span>{{ reviewTitle.dDay }}</span><span class="cv_ddaytit_02">{{ reviewTitle.title }}</span></strong>
         </div>
         <ul *ngFor="let item of reviewList"  class="cv_main_list">
           <li [attr.reviewData]="item | json" (click)="onClickNavigateMenu('review', item)">
@@ -146,41 +109,21 @@
 
       <!-- 의결 -->
       <div [class.cv_none]="selected_menu !== 'vote'" class="cv_tab_cont">
-        <ul class="cv_main_list">
-          <li>
+        <ul *ngFor="let index of voteList" class="cv_main_list">
+          <li  (click)="onClickNavigateMenu('vote/detail', index)">
             <div class="cv_info">
               <!-- notice image -->
               <div class="cv_img">
-                <span><img src = "assets/common/images/test.png" alt="filter image"></span>
+                <span><img src = "assets/common/images/posts/{{ index.img }}" alt="filter image"></span>
               </div>
               <!-- //notice image -->
               <!-- notice contents -->
               <div class="cv_cont">
                 <div>
                   <div class="cv_tit">
-                    <strong>의결 페이지 입니다.</strong>
-                    <div class="cv_total">총 참여<span>100</span>명</div>
-                    <div class="cv_btn_yellow_check"></div>
-                  </div>
-                </div>
-              </div>
-              <!-- //notice contents -->
-            </div>
-          </li>
-          <li>
-            <div class="cv_info">
-              <!-- notice image -->
-              <div class="cv_img">
-                <span><img src = "assets/common/images/no_img.png" alt="filter image"></span>
-              </div>
-              <!-- //notice image -->
-              <!-- notice contents -->
-              <div class="cv_cont">
-                <div>
-                  <div class="cv_tit">
-                    <strong>밤에 건물 불을 켜주세요.</strong>
-                    <div class="cv_total">총 참여<span>50</span>명</div>
-                    <div class="cv_btn_yellow_check"></div>
+                    <strong>{{ index.subject }}</strong>
+                    <div class="cv_total">총 참여<span>{{ index.totalPartiCnt }}</span>명</div>
+                    <div [ngClass]="{'cv_none' : index.studentsReplyContent === '' }" class="cv_btn_yellow_check"></div>
                   </div>
                 </div>
               </div>
