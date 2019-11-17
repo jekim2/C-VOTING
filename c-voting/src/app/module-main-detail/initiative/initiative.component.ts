@@ -54,6 +54,10 @@ export class InitiativeComponent implements OnInit {
         menu = 'main';
         break;
 
+      case 'back':
+        history.back();
+        break;
+
       default:
         break;
     }
@@ -92,5 +96,49 @@ export class InitiativeComponent implements OnInit {
     });
 
     localStorage.setItem('initiativeList', JSON.stringify(newList));
+
+    if (that.recommandCnt >= 200) {
+      that.dataMoveToReivew();
+    }
+  }
+
+  // 추천수 200 넘을시 심의 데이터로 이동
+  dataMoveToReivew() {
+    const reviewList: any = JSON.parse(localStorage.getItem('reviewList'));
+    const today = new Date();
+    const todayAfter = new Date();
+    let startDate, endDate, year, month, day, yearAfter, yearMonth, yearDay = '';
+    year = today.getFullYear().toString();
+    month = (today.getMonth() + 1).toString();
+    day = today.getDate().toString();
+    startDate = year + month + day;
+
+    todayAfter.setDate(todayAfter.getDate() + 14);
+    yearAfter = todayAfter.getFullYear().toString();
+    yearMonth = (todayAfter.getMonth() + 1).toString();
+    yearDay = todayAfter.getDate() < 10 ? "0" + todayAfter.getDate().toString() : todayAfter.getDate.toString();
+    startDate = yearAfter + yearMonth + yearDay;
+    localStorage.setItem('moveToReiview', 'true'); // c-voting 메인에서 dateMove값이 true가 아닐때만 reviewList setItem안하도록.
+    reviewList.push({
+      idx : reviewList.length,
+      type : 'review',
+      writer : this.writer,
+      subject : this.subject,
+      // tslint:disable-next-line:max-line-length
+      content : this.content,
+      regDate : this.regDate,
+      img : '',
+      recommandCnt : 0,
+      totalPartiCnt : 0, // 총 참여수
+      agreePercent : 0,  // 찬성율
+      oppPercent : 0,    // 반대율
+      neutPercent : 0,   // 기타율
+      startDate : startDate, // 심의 시작일
+      endDate : endDate,   // 심의 마감일
+      agreeCmtList : [],
+      oppCmtList : [],
+      neutCmtList : []
+    });
+    localStorage.setItem('reviewList',  JSON.stringify(reviewList));
   }
 }
