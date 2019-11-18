@@ -97,7 +97,7 @@ export class InitiativeComponent implements OnInit {
       });
     });
 
-    if (that.recommandCnt >= 100) {
+    if (that.recommandCnt >= 200) {
       that.dataMoveToReivew(newList);
     } else {
       localStorage.setItem('initiativeList', JSON.stringify(newList));

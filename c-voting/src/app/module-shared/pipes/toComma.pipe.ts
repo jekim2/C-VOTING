@@ -14,7 +14,7 @@ export class ToCommaPipe implements PipeTransform {
 
         const numSplit = strNum.split(".");
 
-        if (numSplit.length === 2){
+        if (numSplit.length === 2) {
             strNum = numSplit[0];
             decimal = numSplit[1];
         }
