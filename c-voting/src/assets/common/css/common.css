@@ -247,14 +247,13 @@ textarea::-webkit-input-placeholder {color:#c2c2c2;}
 .cv_detail_txt .replyCon {width:82%; margin-top:13px; border:2px solid #c0c0c0; border-radius:5px; float:left;}
 .cv_detail_txt .replyCon li {padding:5px 3px; color:#33397a;}
 .cv_detail_txt .replyCon li:first-child {border-bottom:2px solid #c0c0c0;}
-.cv_detail_txt .replyCon li:last-child {height:80px;}
 
 /* vote detail */
 .cv_vote_info dl {display:table; position:relative; width:100%;}
 .cv_vote_info dt {vertical-align:middle; float:left;}
 .cv_vote_info dd {float:right;}
 .cv_vote_info span {color:#5f5f5f; font-size:.75rem;}
-.cv_vote .cv_detail_txt {margin-bottom:240px;}
+.cv_vote .cv_detail_txt {margin-bottom:370px;}
 
 /* title */
 .titleWrap {padding-top:45px; box-sizing:border-box;}
