@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, Routes } from "@angular/router";
 
 declare var $: any;
 @Component({
@@ -20,6 +20,7 @@ export class InitiativeComponent implements OnInit {
   content: '';
   detailImg: '';
   recommandCnt: number;
+  moveIndex: '';    // 심의로넘길 발의idx
 
   constructor(
     private router: Router,
@@ -82,6 +83,7 @@ export class InitiativeComponent implements OnInit {
 
       if (row.idx === that.idx) {
         row.recommandCnt = that.recommandCnt;
+        that.moveIndex = i;
       }
 
       newList.push({
@@ -95,15 +97,15 @@ export class InitiativeComponent implements OnInit {
       });
     });
 
-    localStorage.setItem('initiativeList', JSON.stringify(newList));
-
-    if (that.recommandCnt >= 200) {
-      that.dataMoveToReivew();
+    if (that.recommandCnt >= 100) {
+      that.dataMoveToReivew(newList);
+    } else {
+      localStorage.setItem('initiativeList', JSON.stringify(newList));
     }
   }
 
   // 추천수 200 넘을시 심의 데이터로 이동
-  dataMoveToReivew() {
+  dataMoveToReivew(newList: any) {
     const reviewList: any = JSON.parse(localStorage.getItem('reviewList'));
     const today = new Date();
     const todayAfter = new Date();
@@ -140,5 +142,26 @@ export class InitiativeComponent implements OnInit {
       neutCmtList : []
     });
     localStorage.setItem('reviewList',  JSON.stringify(reviewList));
+
+    // 발의 리스트에서 삭제
+    newList.splice(this.moveIndex, 1);
+//    console.log('@@@ 이동한 idx 삭제한 newList >>> ' + JSON.stringify(newList));
+    const newReviewList: any = [];
+
+    $(newList).each(function(i) {
+      const row = newList[i];
+
+      newReviewList.push({
+        idx : row.idx,
+        writer : row.writer,
+        subject : row.subject,
+        content : row.content,
+        regDate : row.regDate,
+        img : row.img,
+        recommandCnt : row.recommandCnt
+      });
+    });
+
+    localStorage.setItem('initiativeList', JSON.stringify(newReviewList));
   }
 }
