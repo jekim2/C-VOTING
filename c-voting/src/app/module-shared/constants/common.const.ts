@@ -79,7 +79,6 @@ export const InitiativeList = [
     }
 ];
 
-
 /** 심의 글 리스트 **/
 export const ReviewList = [
     {
@@ -93,9 +92,9 @@ export const ReviewList = [
         img : 'img_review_00.jpg',
         recommandCnt : 0,
         totalPartiCnt : 237, // 총 참여수
-        agreePercent : 60,  // 찬성율
-        oppPercent : 20,    // 반대율
-        neutPercent : 10,   // 기타율
+        agreeCnt : 60,  // 찬성율
+        oppCnt : 20,    // 반대율
+        neutCnt : 10,   // 기타율
         startDate : '20191112', // 심의 시작일
         endDate : '20191126',   // 심의 마감일
         cmtList : [
@@ -147,9 +146,9 @@ export const ReviewList = [
         img : 'img_review_01.jpg',
         recommandCnt : 0,
         totalPartiCnt : 429,
-        agreePercent : 82,  // 찬성율
-        oppPercent : 14,    // 반대율
-        neutPercent : 4,   // 기타율
+        agreeCnt : 82,  // 찬성율
+        oppCnt : 14,    // 반대율
+        neutCnt : 4,   // 기타율
         startDate : '20191114', // 심의 시작일
         endDate : '20191128',   // 심의 마감일
         agreeCmtList : [{
@@ -203,9 +202,9 @@ export const ReviewList = [
         img : 'img_review_02.jpg',
         recommandCnt : 0,
         totalPartiCnt : 315,
-        agreePercent : 89,  // 찬성율
-        oppPercent : 8,    // 반대율
-        neutPercent : 3,   // 기타율
+        agreeCnt : 89,  // 찬성율
+        oppCnt : 8,    // 반대율
+        neutCnt : 3,   // 기타율
         startDate : '20191107', // 심의 시작일
         endDate : '20191121',   // 심의 마감일
         agreeCmtList : [{
@@ -241,9 +240,9 @@ export const ReviewList = [
         img : 'img_review_03.jpg',
         recommandCnt : 0,
         totalPartiCnt : 113,
-        agreePercent : 62,  // 찬성율
-        oppPercent : 27,    // 반대율
-        neutPercent : 11,   // 기타율
+        agreeCnt : 62,  // 찬성율
+        oppCnt : 27,    // 반대율
+        neutCnt : 11,   // 기타율
         startDate : '20191105', // 심의 시작일
         endDate : '20191119',   // 심의 마감일
         agreeCmtList : [{

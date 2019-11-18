@@ -21,7 +21,7 @@ export class CVotingMainComponent implements OnInit {
   voteList:any = [];        // 의결
   initiativeTopList = [];   // 발의 top list
   reviewTopList:any = [];   // 심의 top list
-  reviewTitle: any = {'dDay' : 0, 'title': ''}
+  reviewTitle: any = {'dDay' : 0, 'title': ''};
 
   constructor(
     private router: Router,
@@ -108,6 +108,7 @@ export class CVotingMainComponent implements OnInit {
     this.reviewTopList = [];
 
     if (this.reviewList.length > 0) {
+
       const sortList = this.reviewList.sort(function(a,b){
         return b["totalPartiCnt"] - a["totalPartiCnt"];
       });
@@ -130,21 +131,22 @@ export class CVotingMainComponent implements OnInit {
       }
 
       for (let i = 0 ; i< sortList.length; i++) {
-        console.log("idx>>>>>>>> ", i);
+
+        sortList[i]["agreePercent"] = Math.floor(( sortList[i]["agreeCnt"] /  sortList[i]["totalPartiCnt"] ) * 100 );
+        sortList[i]["oppPercent"] = Math.floor(( sortList[i]["oppCnt"] /  sortList[i]["totalPartiCnt"] ) * 100 );
+        sortList[i]["neutPercent"] = 100 - (sortList[i]["agreePercent"] + sortList[i]["oppPercent"] );
+
         if ( i < 3) {
           this.reviewTopList.push(sortList[i]);
         }
       }
+
+      this.reviewList = sortList;
       // console.log("reviewTopList>>>>>>>> ", this.reviewTopList);
     }
 
   }
 
-  sortList (list: any) {
-    list.sort(function(a, b) {  
-      return  
-    });
-  }
 
   movePage (menu: string) {
 
