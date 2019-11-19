@@ -130,12 +130,23 @@ export class CVotingMainComponent implements OnInit {
         this.reviewTitle.title =  dayList[0].subject;
       }
 
-      for (let i = 0 ; i< sortList.length; i++) {
+      for (let i = 0 ; i < sortList.length; i++) {
 
+        // 투표율
         sortList[i]["agreePercent"] = Math.floor(( sortList[i]["agreeCnt"] /  sortList[i]["totalPartiCnt"] ) * 100 );
         sortList[i]["oppPercent"] = Math.floor(( sortList[i]["oppCnt"] /  sortList[i]["totalPartiCnt"] ) * 100 );
         sortList[i]["neutPercent"] = 100 - (sortList[i]["agreePercent"] + sortList[i]["oppPercent"] );
+        // D-day
+        const endDate =  dayList[i]["endDate"];
+        const yEnd = endDate.substring(0, 4);
+        const mEnd = endDate.substring(4, 6);
+        const dEnd = endDate.substring(6, 8);
+        const sDate = new Date (yEnd, mEnd -1 , dEnd);
+        const eDate = new Date();
+        const gapTime = sDate.getTime() - eDate.getTime();
 
+        sortList[i]["dDay"] = Math.ceil(gapTime / (60 * 1000 * 60 * 24));
+        // Top3
         if ( i < 3) {
           this.reviewTopList.push(sortList[i]);
         }
