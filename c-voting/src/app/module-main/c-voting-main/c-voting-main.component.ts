@@ -31,12 +31,16 @@ export class CVotingMainComponent implements OnInit {
   ngOnInit() {
 
     if (!this.shareService.nullCheck(InitiativeList)) {
-      localStorage.setItem('initiativeList' , JSON.stringify(InitiativeList));
+      if (localStorage.getItem('recomCntChange') !== 'Y') {     // 추천수 변경됬을때
+        localStorage.setItem('initiativeList' , JSON.stringify(InitiativeList));
+      }
       this.initiativeList = $.parseJSON(localStorage.getItem("initiativeList"));
     }
 
     if (!this.shareService.nullCheck(ReviewList)) {
-      localStorage.setItem('reviewList' , JSON.stringify(ReviewList));
+      if (localStorage.getItem('moveToReiview') !== 'Y') {     // 발의 -> 심의 데이터로 이동했을때
+        localStorage.setItem('reviewList' , JSON.stringify(ReviewList));
+      }
       this.reviewList = $.parseJSON(localStorage.getItem("reviewList"));
     }
 

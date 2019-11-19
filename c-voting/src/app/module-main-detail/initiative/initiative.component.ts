@@ -97,7 +97,9 @@ export class InitiativeComponent implements OnInit {
       });
     });
 
-    if (that.recommandCnt >= 200) {
+    localStorage.setItem('recomCntChange', 'Y');   // 추천수 변경되었을 때 Y
+
+    if (that.recommandCnt >= 100) {
       that.dataMoveToReivew(newList);
     } else {
       localStorage.setItem('initiativeList', JSON.stringify(newList));
@@ -120,7 +122,8 @@ export class InitiativeComponent implements OnInit {
     yearMonth = (todayAfter.getMonth() + 1).toString();
     yearDay = todayAfter.getDate() < 10 ? "0" + todayAfter.getDate().toString() : todayAfter.getDate.toString();
     startDate = yearAfter + yearMonth + yearDay;
-    localStorage.setItem('moveToReiview', 'true'); // c-voting 메인에서 dateMove값이 true가 아닐때만 reviewList setItem안하도록.
+
+    localStorage.setItem('moveToReiview', 'Y'); // c-voting 메인에서 dateMove값이 Y 아닐때만 reviewList setItem안하도록.
     reviewList.push({
       idx : reviewList.length,
       type : 'review',
@@ -129,12 +132,12 @@ export class InitiativeComponent implements OnInit {
       // tslint:disable-next-line:max-line-length
       content : this.content,
       regDate : this.regDate,
-      img : '',
-      recommandCnt : 0,
+      img : this.detailImg,
+      recommandCnt : this.recommandCnt,
       totalPartiCnt : 0, // 총 참여수
-      agreePercent : 0,  // 찬성율
-      oppPercent : 0,    // 반대율
-      neutPercent : 0,   // 기타율
+      agreeCnt : 0,  // 찬성율
+      oppCnt : 0,    // 반대율
+      neutCnt : 0,   // 기타율
       startDate : startDate, // 심의 시작일
       endDate : endDate,   // 심의 마감일
       agreeCmtList : [],
