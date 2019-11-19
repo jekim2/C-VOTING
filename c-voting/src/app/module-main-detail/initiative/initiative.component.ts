@@ -134,7 +134,7 @@ export class InitiativeComponent implements OnInit {
       regDate : this.regDate,
       img : this.detailImg,
       recommandCnt : this.recommandCnt,
-      totalPartiCnt : 0, // 총 참여수
+      totalPartiCnt : 1, // 총 참여수
       agreeCnt : 0,  // 찬성율
       oppCnt : 0,    // 반대율
       neutCnt : 0,   // 기타율
