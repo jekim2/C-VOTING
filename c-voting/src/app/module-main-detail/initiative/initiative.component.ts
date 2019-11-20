@@ -71,8 +71,6 @@ export class InitiativeComponent implements OnInit {
     this.isRecommendAlert = false;
     this.isRecommendFlag = true;
     this.recommandCnt++;
-    console.log('@@@ 추천하기 후 recommandCnt >>> ' + this.recommandCnt);
-    console.log('@@@ idx >>> ' + this.idx);
 
     const initiativeList: any = JSON.parse(localStorage.getItem('initiativeList'));
     const newList: any = [];
@@ -114,14 +112,14 @@ export class InitiativeComponent implements OnInit {
     let startDate, endDate, year, month, day, yearAfter, yearMonth, yearDay = '';
     year = today.getFullYear().toString();
     month = (today.getMonth() + 1).toString();
-    day = today.getDate().toString();
+    day = today.getDate() < 10 ? "0" + today.getDate().toString() : today.getDate.toString();
     startDate = year + month + day;
 
     todayAfter.setDate(todayAfter.getDate() + 14);
     yearAfter = todayAfter.getFullYear().toString();
     yearMonth = (todayAfter.getMonth() + 1).toString();
     yearDay = todayAfter.getDate() < 10 ? "0" + todayAfter.getDate().toString() : todayAfter.getDate.toString();
-    startDate = yearAfter + yearMonth + yearDay;
+    endDate = yearAfter + yearMonth + yearDay;
 
     localStorage.setItem('moveToReiview', 'Y'); // c-voting 메인에서 dateMove값이 Y 아닐때만 reviewList setItem안하도록.
     reviewList.push({
