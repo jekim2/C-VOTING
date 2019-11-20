@@ -30,6 +30,16 @@ export class CVotingMainComponent implements OnInit {
 
   ngOnInit() {
 
+
+    cVotingUtil.getStorage(function(data) {
+      console.log("data >>>>>>>>" , JSON.stringify(data));
+      if (data.result) {
+        cVotingUtil.getData(function(res) {
+          console.log("res !!!!!!!!!!>>>>>>>>" , JSON.stringify(res));
+        });
+      }
+    });
+
     if (!this.shareService.nullCheck(InitiativeList)) {
       if (localStorage.getItem('recomCntChange') !== 'Y') {     // 추천수 변경됬을때
         localStorage.setItem('initiativeList' , JSON.stringify(InitiativeList));
