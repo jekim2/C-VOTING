@@ -5,7 +5,7 @@
       <div class="cv_swipe_title">C-VOTING</div>
       <div class="cv_btn_search" (click)="onClickNavigateMenu('search')"></div>
         <ul  class="swiper-wrapper">
-          <li *ngFor="let item of reviewTopList" class="swiper-slide">
+          <li [attr.reviewData]="item | json" (click)="onClickNavigateMenu('review', item)" *ngFor="let item of reviewTopList" class="swiper-slide">
             <div class="cv_swipe_title_02">
               <span>{{ item.subject }}</span>
               <div>현재 찬 <em>{{ item.agreePercent }}%</em> 반 <em>{{ item.oppPercent }}%</em><p>{{ item.startDate  | dateFormat:'yyyy.mm.dd' }} ~ {{ item.endDate  | dateFormat:'yyyy.mm.dd' }}</p></div>

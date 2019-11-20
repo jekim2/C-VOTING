@@ -3,6 +3,8 @@ import { LoadingService } from '../../module-shared/services/loading.service';
 import { ShareService } from '../../module-shared/services/share.service';
 import { Router } from '@angular/router';
 
+declare var cVotingUtil: any;
+
 @Component({
   selector: 'app-c-voting-search',
   templateUrl: './c-voting-search.component.html',
@@ -100,9 +102,9 @@ export class CVotingSearchComponent implements OnInit {
     if (item.type === 'initiative') {
       menu_url = 'initiative';
     } else if (item.type === 'review') {
-
+      cVotingUtil.showDiscussionPage(item);
     } else if (item.type === 'vote') {
-      menu_url = 'vote';
+      menu_url = 'vote/detail';
     }
     this.zone.run(() => this.router.navigate([menu_url, { infos : JSON.stringify(item) }]));
   }
