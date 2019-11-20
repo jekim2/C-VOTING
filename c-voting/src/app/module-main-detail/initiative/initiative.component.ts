@@ -55,10 +55,6 @@ export class InitiativeComponent implements OnInit {
         menu = 'main';
         break;
 
-      case 'back':
-        history.back();
-        break;
-
       default:
         break;
     }
