@@ -58,28 +58,22 @@
         cVotingUtil.callPlugin("SET_SHARED_STORAGE", param);
     }
 
-    cVotingUtil.getStorage = function(callback) {
+    cVotingUtil.getStorage = function(type) {
+
+        var getData_url = ""
+
+        if (type === "main") {
+            getData_url = "CVotingMainComponent.getData";
+        }
 
         var res = {"result" : true};
         var param = {
             storage_name : "",
-            callback: "cVotingUtil.getData"
+            callback: getData_url
         }
 
         cVotingUtil.callPlugin("GET_SHARED_STORAGE", param);
 
-        if (callback) {
-            callback(res)
-        }
     }
-
-    cVotingUtil.getData = function(res,callback)  {
-        console.log("res >>>>>>>>>" , JSON.stringify(res));
-        if (callback) {
-            callback(res);
-        }
-    } 
-
-
 
 })(jQuery, undefined);

@@ -26,19 +26,11 @@ export class CVotingMainComponent implements OnInit {
   constructor(
     private router: Router,
     private shareService: ShareService
-  ) { }
+  ) { window["CVotingMainComponent"] = this;  }
 
   ngOnInit() {
 
-
-    cVotingUtil.getStorage(function(data) {
-      console.log("data >>>>>>>>" , JSON.stringify(data));
-      if (data.result) {
-        cVotingUtil.getData(function(res) {
-          console.log("res !!!!!!!!!!>>>>>>>>" , JSON.stringify(res));
-        });
-      }
-    });
+    cVotingUtil.getStorage("main");
 
     if (!this.shareService.nullCheck(InitiativeList)) {
       if (localStorage.getItem('recomCntChange') !== 'Y') {     // 추천수 변경됬을때
@@ -117,6 +109,10 @@ export class CVotingMainComponent implements OnInit {
 
   }
 
+  getData(res) {
+    console.log("res getData >>>>>>>>>>>>>> ", JSON.stringify(res));
+  }
+
   // 심의 top three
   reviewTopThree () {
     this.reviewTopList = [];
@@ -147,8 +143,8 @@ export class CVotingMainComponent implements OnInit {
       for (let i = 0 ; i < sortList.length; i++) {
 
         // 투표율
-        sortList[i]["agreePercent"] = Math.floor(( sortList[i]["agreeCnt"] /  sortList[i]["totalPartiCnt"] ) * 100 );
-        sortList[i]["oppPercent"] = Math.floor(( sortList[i]["oppCnt"] /  sortList[i]["totalPartiCnt"] ) * 100 );
+        sortList[i]["agreePercent"] = Math.floor(( sortList[i]["agreeCnt"] /  sortList[i]["totalPartiCnt"]  * 100 ));
+        sortList[i]["oppPercent"] = Math.floor(( sortList[i]["oppCnt"] /  sortList[i]["totalPartiCnt"]  * 100 ));
         sortList[i]["neutPercent"] = 100 - (sortList[i]["agreePercent"] + sortList[i]["oppPercent"] );
         // D-day
         const endDate =  dayList[i]["endDate"];
