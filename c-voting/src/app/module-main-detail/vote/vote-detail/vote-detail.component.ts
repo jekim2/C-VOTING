@@ -21,6 +21,7 @@ export class VoteDetailComponent implements OnInit {
   totalPartiCnt: number;
   viewsCnt: number;
   studentsReplyContent: '';
+  isAttach: '';
 
   constructor(
     private router: Router,
@@ -29,10 +30,10 @@ export class VoteDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      console.log("params >>>>>>>> " + JSON.stringify(params));
+//      console.log("params >>>>>>>> " + JSON.stringify(params));
       if (params.has("infos")) {
        const infos = $.parseJSON(params.get("infos"));
-       console.log("infos >>>>>>>> " + JSON.stringify(infos));
+//       console.log("infos >>>>>>>> " + JSON.stringify(infos));
        this.detail = infos;
        this.setDetail();
       }
@@ -49,6 +50,7 @@ export class VoteDetailComponent implements OnInit {
     this.totalPartiCnt = this.detail.totalPartiCnt;
     this.viewsCnt = this.detail.viewsCnt;
     this.studentsReplyContent = this.detail.studentsReplyContent;
+    this.isAttach = this.detail.isAttach;
   }
 
   onClickNavigateMenu (menu: string) {
