@@ -21,7 +21,7 @@ export class VoteDetailComponent implements OnInit {
   totalPartiCnt: number;
   viewsCnt: number;
   studentsReplyContent: '';
-  isAttach: '';
+  isAttach;
 
   constructor(
     private router: Router,

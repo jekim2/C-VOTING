@@ -23,7 +23,7 @@ export class InitiativeComponent implements OnInit {
   detailImg: '';
   recommandCnt: number;
   moveIndex: '';    // 심의로넘길 발의idx
-  isAttach: '';
+  isAttach;
   initiativeList: any;
   reviewList: any;
 
