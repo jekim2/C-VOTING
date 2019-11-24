@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { ActivatedRoute, Router, Routes } from "@angular/router";
+import { ShareService } from '../../module-shared/services/share.service';
 
 declare var $: any;
+declare var cVotingUtil: any;
 @Component({
   selector: 'app-initiative',
   templateUrl: './initiative.component.html',
@@ -22,21 +24,26 @@ export class InitiativeComponent implements OnInit {
   recommandCnt: number;
   moveIndex: '';    // 심의로넘길 발의idx
   isAttach: '';
+  initiativeList: any;
+  reviewList: any;
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute
-  ) { }
+    private route: ActivatedRoute,
+    private shareService: ShareService,
+    private zone: NgZone
+  ) { window["InitiativeComponent"] = this; }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      console.log("params >>>>>>>> " + JSON.stringify(params));
+//      console.log("params >>>>>>>> " + JSON.stringify(params));
       if (params.has("infos")) {
        const infos = $.parseJSON(params.get("infos"));
-       console.log("infos >>>>>>>> " + JSON.stringify(infos));
+//       console.log("infos >>>>>>>> " + JSON.stringify(infos));
        this.detail = infos;
        this.setDetail();
       }
+      this.setData();
     });
   }
 
@@ -49,6 +56,16 @@ export class InitiativeComponent implements OnInit {
     this.content = this.detail.content;
     this.recommandCnt = this.detail.recommandCnt;
     this.isAttach = this.detail.isAttach;
+  }
+
+  setData() {
+    if (this.shareService.mobileCheck()) {
+      cVotingUtil.getStorage("initiative", "InitiativeList");
+      cVotingUtil.getStorage("initiative", "ReviewList");
+    } else {
+      this.initiativeList = localStorage.getItem('initiativeList');
+      this.reviewList = localStorage.getItem('reviewList');
+    }
   }
 
   onClickNavigateMenu (menu: string) {
@@ -70,7 +87,8 @@ export class InitiativeComponent implements OnInit {
     this.isRecommendFlag = true;
     this.recommandCnt++;
 
-    const initiativeList: any = JSON.parse(localStorage.getItem('initiativeList'));
+//    const initiativeList: any = JSON.parse(localStorage.getItem('initiativeList'));
+    const initiativeList: any = JSON.parse(this.initiativeList);
     const newList: any = [];
     const that = this;
 
@@ -95,16 +113,18 @@ export class InitiativeComponent implements OnInit {
 
     localStorage.setItem('recomCntChange', 'Y');   // 추천수 변경되었을 때 Y
 
-    if (that.recommandCnt >= 100) {
+    if (that.recommandCnt >= 200) {
       that.dataMoveToReivew(newList);
     } else {
-      localStorage.setItem('initiativeList', JSON.stringify(newList));
+//      localStorage.setItem('initiativeList', JSON.stringify(newList));
+      cVotingUtil.setStorage('initiative', 'InitiativeList', JSON.stringify(newList));
     }
   }
 
   // 추천수 200 넘을시 심의 데이터로 이동
   dataMoveToReivew(newList: any) {
-    const reviewList: any = JSON.parse(localStorage.getItem('reviewList'));
+//    const reviewList: any = JSON.parse(localStorage.getItem('reviewList'));
+    const reviewList: any = JSON.parse(this.reviewList);
     const today = new Date();
     const todayAfter = new Date();
     let startDate, endDate, year, month, day, yearAfter, yearMonth, yearDay = '';
@@ -140,7 +160,8 @@ export class InitiativeComponent implements OnInit {
       oppCmtList : [],
       neutCmtList : []
     });
-    localStorage.setItem('reviewList',  JSON.stringify(reviewList));
+//    localStorage.setItem('reviewList',  JSON.stringify(reviewList));
+    cVotingUtil.setStorage('initiative', 'ReviewList', JSON.stringify(reviewList));
 
     // 발의 리스트에서 삭제
     newList.splice(this.moveIndex, 1);
@@ -161,6 +182,22 @@ export class InitiativeComponent implements OnInit {
       });
     });
 
-    localStorage.setItem('initiativeList', JSON.stringify(newReviewList));
+//    localStorage.setItem('initiativeList', JSON.stringify(newReviewList));
+    cVotingUtil.setStorage('initiative', 'InitiativeList', JSON.stringify(newReviewList));
+  }
+
+  getDataCallback(res) {
+    console.log("@@@ getData List >>>>>>>>>>>>>> ", JSON.stringify(res.stored_data));
+    if (res.stored_data[0].type === 'initiative') {
+      this.zone.run(() => this.initiativeList = res.stored_data);
+      console.log('@@@ getDataCallback InitiativeList >>> ' + JSON.stringify(this.initiativeList));
+    } else if (res.stored_data[0].type === 'review') {
+      this.zone.run(() => this.reviewList = res.stored_data);
+      console.log('@@@ getDataCallback ReviewList >>> ' + JSON.stringify(this.reviewList));
+    }
+  }
+
+  setDataCallback(res) {
+    console.log('@@@ setDataCallback response >>> ' + JSON.stringify(res));
   }
 }

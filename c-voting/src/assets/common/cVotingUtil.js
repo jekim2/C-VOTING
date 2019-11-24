@@ -43,13 +43,24 @@
         console.log(JSON.stringify(result));
     }
 
-    cVotingUtil.setStorage = function(storage_name, data) {
-        var param = {
-            storage_name : storage_name,
-            data : data,
-            callback : "callback" //콜백 받을 함수 명
+    cVotingUtil.setStorage = function(type, listName, data) {
+
+        var getData_url = ""
+
+        if (type === "initiative_regist") {
+            getData_url = "InitiativeRegistrationComponent.setDataCallback";
+        } else if(type === "initiative") {
+            getData_url = "InitiativeComponent.setDataCallback";
         };
 
+        var param = {
+            storage_name : "default",
+            list_name : listName,
+            callback : getData_url, //콜백 받을 함수 명
+            data : data
+        };
+        
+//        console.log('@@@ cVotingUtil.setStorage param >>> ' + JSON.stringify(param));
         cVotingUtil.callPlugin("SET_SHARED_STORAGE", param);
     }
 
@@ -59,8 +70,10 @@
 
         if (type === "main") {
             getData_url = "CVotingMainComponent.getData";
+        } else if (type === "initiative_regist") {
+            getData_url = "InitiativeRegistrationComponent.getDataCallback";
         } else if (type === "initiative") {
-            getData_url = "InitiativeRegistrationComponent.getData";
+            getData_url = "InitiativeComponent.getDataCallback";
         }
 
         var res = {"result" : true};
@@ -72,29 +85,6 @@
         
 //        console.log('@@@ GET DATA param >>> ' + JSON.stringify(param));
         cVotingUtil.callPlugin("GET_SHARED_STORAGE", param);
-
-    }
-
-    cVotingUtil.setStorage = function(type, listName, data) {
-
-        var getData_url = ""
-
-        if (type === "main") {
-            getData_url = "CVotingMainComponent.getData";
-        } else if (type === "initiative") {
-            getData_url = "InitiativeRegistrationComponent.getData";
-        }
-
-        var res = {"result" : true};
-        var param = {
-            storage_name : "default",
-            list_name : listName, // InitiativeList ReviewList VoteList
-            callback: getData_url,
-            data : data     // InitiativeList 데이터 전체, ReviewList 데이터 전체, VoteList 데이터 전체
-        }
-        
-//        console.log('@@@ SET DATA param >>> ' + JSON.stringify(param));
-        cVotingUtil.callPlugin("SET_SHARED_STORAGE", param);
 
     }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import Swiper from 'swiper';
 import { InitiativeList, ReviewList, VoteList } from '../../../app/module-shared/constants/common.const';
@@ -25,40 +25,51 @@ export class CVotingMainComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private shareService: ShareService
+    private shareService: ShareService,
+    private zone: NgZone
   ) { window["CVotingMainComponent"] = this;  }
 
   ngOnInit() {
 
-    cVotingUtil.getStorage("main");
+    if (this.shareService.mobileCheck()) {
+      cVotingUtil.getStorage("main", "InitiativeList");
+      cVotingUtil.getStorage("main", "ReviewList");
+      cVotingUtil.getStorage("main", "VoteList");
+    } else {
 
-    if (!this.shareService.nullCheck(InitiativeList)) {
-      if (localStorage.getItem('recomCntChange') !== 'Y') {     // 추천수 변경됬을때
-        localStorage.setItem('initiativeList' , JSON.stringify(InitiativeList));
+      if (!this.shareService.nullCheck(InitiativeList)) {
+        if (localStorage.getItem('recomCntChange') !== 'Y') {     // 추천수 변경됬을때
+          localStorage.setItem('initiativeList' , JSON.stringify(InitiativeList));
+        }
+        this.initiativeList = $.parseJSON(localStorage.getItem("initiativeList"));
       }
-      this.initiativeList = $.parseJSON(localStorage.getItem("initiativeList"));
-    }
-
-    if (!this.shareService.nullCheck(ReviewList)) {
-      if (localStorage.getItem('moveToReiview') !== 'Y') {     // 발의 -> 심의 데이터로 이동했을때
-        localStorage.setItem('reviewList' , JSON.stringify(ReviewList));
+  
+      if (!this.shareService.nullCheck(ReviewList)) {
+        if (localStorage.getItem('moveToReiview') !== 'Y') {     // 발의 -> 심의 데이터로 이동했을때
+          localStorage.setItem('reviewList' , JSON.stringify(ReviewList));
+        }
+        this.reviewList = $.parseJSON(localStorage.getItem("reviewList"));
       }
-      this.reviewList = $.parseJSON(localStorage.getItem("reviewList"));
+  
+      if (!this.shareService.nullCheck(VoteList)) {
+        localStorage.setItem('voteList' , JSON.stringify(VoteList));
+        this.voteList = $.parseJSON(localStorage.getItem("voteList"));
+        console.log("voteList >>> " , JSON.stringify(this.voteList));
+      }
     }
 
-    if (!this.shareService.nullCheck(VoteList)) {
-      localStorage.setItem('voteList' , JSON.stringify(VoteList));
-      this.voteList = $.parseJSON(localStorage.getItem("voteList"));
-      console.log("voteList >>> " , JSON.stringify(this.voteList));
-    }
+    console.log('@@@ initiativeList >>> ' + JSON.stringify(this.initiativeList));
+    console.log('@@@ voteList >>> ' + JSON.stringify(this.voteList));
+    console.log('@@@ reviewList >>> ' + JSON.stringify(this.reviewList));
 
-    this.initiativeTopThree();
 
-    this.reviewTopThree();
+    setTimeout(() => {
+      this.initiativeTopThree();
+      this.reviewTopThree();
+    }, 1000);
 
   }
 
-  
  ngAfterViewInit() {
 
   const swiper = new Swiper('.swiper-container-01', {
@@ -92,6 +103,7 @@ export class CVotingMainComponent implements OnInit {
 
  // 발의 top three
   initiativeTopThree () {
+    console.log('@@@ initiativeTopThree');
     this.initiativeTopList = [];
 
     if (this.initiativeList.length > 0) {
@@ -105,16 +117,25 @@ export class CVotingMainComponent implements OnInit {
         }
       }
     }
+    console.log('@@@ initiativeTopList >>> ' + JSON.stringify(this.initiativeTopList));
 
 
   }
 
   getData(res) {
-    console.log("res getData >>>>>>>>>>>>>> ", JSON.stringify(res));
+    console.log("@@@ res getData >>>>>>>>>>>>>> ", JSON.stringify(res));
+    if (res.stored_data[0].type === 'initiative') {
+      this.zone.run(() => this.initiativeList = res.stored_data);
+    } else if (res.stored_data[0].type === 'review') {
+      this.zone.run(() => this.reviewList = res.stored_data);
+    } else if (res.stored_data[0].type === 'vote') {
+      this.zone.run(() => this.voteList = res.stored_data);
+    }
   }
 
   // 심의 top three
   reviewTopThree () {
+    console.log('@@@ reviewTopThree');
     this.reviewTopList = [];
 
     if (this.reviewList.length > 0) {
@@ -163,7 +184,7 @@ export class CVotingMainComponent implements OnInit {
       }
 
       this.reviewList = sortList;
-      // console.log("reviewTopList>>>>>>>> ", this.reviewTopList);
+       console.log("@@@ reviewTopList>>>>>>>> ", this.reviewTopList);
     }
 
   }

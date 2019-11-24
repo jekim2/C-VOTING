@@ -34,7 +34,7 @@ export class InitiativeRegistrationComponent implements OnInit {
 
   ngOnInit() {
     if (this.shareService.mobileCheck()) {
-      cVotingUtil.getStorage("initiative", "InitiativeList");
+      cVotingUtil.getStorage("initiative_regist", "InitiativeList");
     } else {
       this.initiativeList = InitiativeList;
     }
@@ -136,7 +136,8 @@ export class InitiativeRegistrationComponent implements OnInit {
 
     // 저장되어있는 발의 리스트 확인
     if (this.shareService.nullCheck(this.initiativeList)) {
-      localStorage.setItem('initiativeList', JSON.stringify(posts));
+//      localStorage.setItem('initiativeList', JSON.stringify(posts));
+        cVotingUtil.setStorage('initiative_regist', 'InitiativeList', JSON.stringify(posts));
     } else {
 //      const localInitiativeList: any = $.parseJSON(this.initiativeList);
       const localInitiativeList: any = this.initiativeList;
@@ -155,18 +156,23 @@ export class InitiativeRegistrationComponent implements OnInit {
         isAttach : posts.isAttach
       });
 
-      localStorage.setItem('initiativeList', JSON.stringify(localInitiativeList));
+//      localStorage.setItem('initiativeList', JSON.stringify(localInitiativeList));
+      cVotingUtil.setStorage('initiative_regist', 'InitiativeList', JSON.stringify(localInitiativeList));
     }
 
     this.movePage('initiativeDetail', JSON.stringify(posts));
   }
 
-  getData(res) {
+  getDataCallback(res) {
 //  console.log("@@@ getData List >>>>>>>>>>>>>> ", JSON.stringify(res.stored_data));
 //  console.log('@@@ length @@@@@@@ >>> ' + res.stored_data.length);
 //    const list: any = res.stored_data;
     this.zone.run(() => this.initiativeList = res.stored_data);
 //    console.log('@@@ initiativeList last idx >>>> ' + this.initiativeList[6].subject);
+  }
+
+  setDataCallback(res) {
+    console.log('@@@ setDataCallback response >>> ' + JSON.stringify(res));
   }
 
   // 갤러리 호출
