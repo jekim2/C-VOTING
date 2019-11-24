@@ -32,7 +32,7 @@ export class EnterFormatPipe implements PipeTransform {
             default:
                 break;
         }
-        console.log('@@@ formatDate >>> ' + formatDate);
+//        console.log('@@@ formatDate >>> ' + formatDate);
         return formatDate;
     } else {
       return '';

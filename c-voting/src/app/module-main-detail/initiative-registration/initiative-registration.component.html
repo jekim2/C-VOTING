@@ -72,7 +72,7 @@
         <label><span class="tit">작성자</span><input type="text" class="writer" id="wrtier" name="" placeholder="작성자를 입력해주세요."></label>
         <label><span class="tit">제목</span><input type="text" class="subject" id="subject" name="" placeholder="제목을 입력해주세요."></label>
         <label class="content"><span class="tit">내용</span><textarea rows="8" cols="80" id="content" placeholder="내용을 입력해주세요."></textarea></label>
-        <label><button type="button" class="btn_attach"></button><span id="">첨부한 파일 이름</span></label>
+        <label><button type="button" class="btn_attach" (click)="callGallery()"></button><span>{{ imgName }}</span></label>
     </fieldset>
     <!-- bottom -->
     <div class="c_btn">

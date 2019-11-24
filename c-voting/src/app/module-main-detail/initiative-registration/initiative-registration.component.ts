@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { ShareService } from "./../../module-shared/services/share.service";
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { InitiativeList } from '../../module-shared/constants/common.const';
 import { LoadingService } from '../../module-shared/services/loading.service';
 
 declare var $: any;
+declare var cVotingUtil: any;
 @Component({
   selector: 'app-initiative-registration',
   templateUrl: './initiative-registration.component.html',
@@ -15,18 +17,27 @@ export class InitiativeRegistrationComponent implements OnInit {
   isCancelAlert = false;      // 글쓰기 취소 팝업 Flag
   isAgreeAlert = false;       // 주의사항 동의 팝업 Flag
   isValidationAlert = false;  // 유효성 체크 팝업 Flag
+  isAttach = false;           // 파일 첨부 Flag
 
   initiativeList;             // 발의 가데이터 리스트
   validationMsg = '';         // 유효성 체크 alert msg
+  imgPath = '';               // 첨부할 이미지 경로
+  imgName = '';               // 첨부한 이미지 이름
 
 
   constructor(
     private router: Router,
-    private loading: LoadingService
-  ) { }
+    private loading: LoadingService,
+    private zone: NgZone,
+    private shareService: ShareService
+  ) { window["InitiativeRegistrationComponent"] = this; }
 
   ngOnInit() {
-    this.initiativeList = InitiativeList;
+    if (this.shareService.mobileCheck()) {
+      cVotingUtil.getStorage("initiative", "InitiativeList");
+    } else {
+      this.initiativeList = InitiativeList;
+    }
   }
 
   // 페이지 이동
@@ -95,9 +106,12 @@ export class InitiativeRegistrationComponent implements OnInit {
 
   // 글 등록
   registration(writer, subject, content) {
-//    this.loading.loadingBar_show('cvList01');
 
-    const img = '';
+    let img = '';
+    // 이미지 첨부 확인
+    if (this.isAttach) {
+      img = this.imgPath;
+    }
     const today = new Date();
     let regDate, year, month, day, hours, minutes = '';
     year = today.getFullYear().toString();
@@ -114,17 +128,22 @@ export class InitiativeRegistrationComponent implements OnInit {
       content : content,
       regDate : regDate,
       img : img,
-      recommandCnt : 0
+      recommandCnt : 0,
+      isAttach : 'N'    // 파일 첨부 기본값 N
     };
 
+    console.log('@@@ this.initiativeList >>>>>>>> ' + JSON.stringify(this.initiativeList));
+
     // 저장되어있는 발의 리스트 확인
-    if (localStorage.getItem('initiativeList') === null || localStorage.getItem('initiativeList') === '[]') {
+    if (this.shareService.nullCheck(this.initiativeList)) {
       localStorage.setItem('initiativeList', JSON.stringify(posts));
     } else {
-      const localInitiativeList: any = $.parseJSON(localStorage.getItem('initiativeList'));
+//      const localInitiativeList: any = $.parseJSON(this.initiativeList);
+      const localInitiativeList: any = this.initiativeList;
 
       // 글 번호 재설정
       posts.idx = localInitiativeList.length;
+      posts.isAttach = this.isAttach === true ? 'Y' : 'N';
       localInitiativeList.push({
         idx :  posts.idx,
         writer :  posts.writer,
@@ -132,16 +151,35 @@ export class InitiativeRegistrationComponent implements OnInit {
         content :  posts.content,
         regDate :  posts.regDate,
         img :  posts.img,
-        recommandCnt :  posts.recommandCnt
+        recommandCnt :  posts.recommandCnt,
+        isAttach : posts.isAttach
       });
 
       localStorage.setItem('initiativeList', JSON.stringify(localInitiativeList));
     }
 
-    // setTimeout(() => {
-    //   this.loading.loadingBar_hide('cvList01');
-    // }, 300);
-
     this.movePage('initiativeDetail', JSON.stringify(posts));
+  }
+
+  getData(res) {
+//  console.log("@@@ getData List >>>>>>>>>>>>>> ", JSON.stringify(res.stored_data));
+//  console.log('@@@ length @@@@@@@ >>> ' + res.stored_data.length);
+//    const list: any = res.stored_data;
+    this.zone.run(() => this.initiativeList = res.stored_data);
+//    console.log('@@@ initiativeList last idx >>>> ' + this.initiativeList[6].subject);
+  }
+
+  // 갤러리 호출
+  callGallery() {
+    cVotingUtil.getImagePath();
+  }
+
+  // 갤러리 콜백
+  setImgPath(res) {
+//    console.log('@@@ setImgPath res >>> ' + JSON.stringify(res));
+    this.imgPath = res.image_path;
+    this.imgName = res.image_path.split('/')[this.imgPath.split('/').length - 1];
+    this.isAttach = true;
+    this.zone.run(() => this.imgName = this.imgName);
   }
 }

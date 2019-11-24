@@ -21,6 +21,7 @@ export class InitiativeComponent implements OnInit {
   detailImg: '';
   recommandCnt: number;
   moveIndex: '';    // 심의로넘길 발의idx
+  isAttach: '';
 
   constructor(
     private router: Router,
@@ -47,6 +48,7 @@ export class InitiativeComponent implements OnInit {
     this.detailImg = this.detail.img;
     this.content = this.detail.content;
     this.recommandCnt = this.detail.recommandCnt;
+    this.isAttach = this.detail.isAttach;
   }
 
   onClickNavigateMenu (menu: string) {

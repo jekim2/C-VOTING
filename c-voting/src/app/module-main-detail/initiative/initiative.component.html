@@ -22,7 +22,10 @@
     <!-- //detail info -->
 
     <!-- detail image -->
-    <div [class.cv_none]="detailImg == ''" class="cv_column cv_detail_img"><img src="assets/common/images/posts/{{ detailImg }}" alt="detail image"></div>
+    <div [class.cv_none]="detailImg == ''" class="cv_column cv_detail_img">
+      <img *ngIf="isAttach === 'Y'" src="file://{{ detailImg }}" alt="detail image" style="border:1px solid red;">
+      <img *ngIf="isAttach === 'N' || isAttach === '' || isAttach === undefined || isAttach === null" src="assets/common/images/posts/{{ detailImg }}" alt="detail image" style="border:1px solid blue;">
+    </div>
     <!-- //detail image -->
 
     <!-- detail contents -->
