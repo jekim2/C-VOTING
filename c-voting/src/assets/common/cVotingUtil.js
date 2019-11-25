@@ -74,6 +74,8 @@
             getData_url = "InitiativeRegistrationComponent.getDataCallback";
         } else if (type === "initiative") {
             getData_url = "InitiativeComponent.getDataCallback";
+        } else if (type === "search") {
+            getData_url = "CVotingSearchComponent.getData";
         }
 
         var res = {"result" : true};
