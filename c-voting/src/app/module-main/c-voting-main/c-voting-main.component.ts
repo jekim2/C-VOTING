@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import Swiper from 'swiper';
 import { InitiativeList, ReviewList, VoteList } from '../../../app/module-shared/constants/common.const';
 import { ShareService } from '../../module-shared/services/share.service';
+import { LoadingService } from '../../module-shared/services/loading.service';
 
 declare var $: any;
 declare var cVotingUtil: any;
@@ -26,17 +27,21 @@ export class CVotingMainComponent implements OnInit {
   constructor(
     private router: Router,
     private shareService: ShareService,
+    private loadingService: LoadingService,
     private zone: NgZone
   ) { window["CVotingMainComponent"] = this;  }
 
   ngOnInit() {
 
+    this.loadingService.all_loadingBar_show("cvSubWrap");
+
     if (this.shareService.mobileCheck()) {
       cVotingUtil.getStorage("main", "InitiativeList");
       cVotingUtil.getStorage("main", "ReviewList");
       cVotingUtil.getStorage("main", "VoteList");
+  
     } else {
-
+  
       if (!this.shareService.nullCheck(InitiativeList)) {
         if (localStorage.getItem('recomCntChange') !== 'Y') {     // 추천수 변경됬을때
           localStorage.setItem('initiativeList' , JSON.stringify(InitiativeList));
@@ -56,55 +61,54 @@ export class CVotingMainComponent implements OnInit {
         this.voteList = $.parseJSON(localStorage.getItem("voteList"));
         console.log("voteList >>> " , JSON.stringify(this.voteList));
       }
-    }
-
-    console.log('@@@ initiativeList >>> ' + JSON.stringify(this.initiativeList));
-    console.log('@@@ voteList >>> ' + JSON.stringify(this.voteList));
-    console.log('@@@ reviewList >>> ' + JSON.stringify(this.reviewList));
-
-
-    setTimeout(() => {
+  
       this.initiativeTopThree();
       this.reviewTopThree();
-    }, 1000);
+    }
 
   }
 
  ngAfterViewInit() {
 
-  const swiper = new Swiper('.swiper-container-01', {
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets'
-    },
-    speed: 400,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false
-    },
-    direction: 'horizontal',
-    loop: true
-  });
+  setTimeout(() => {
+    
+    const swiper = new Swiper('.swiper-container-01', {
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets'
+      },
+      speed: 400,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+      },
+      direction: 'horizontal',
+      loop: true
+    });
+  
+    const swiper_02 = new Swiper ('.v-swiper-container', {
+      loop: true,
+      direction: 'vertical',
+      slidesPerView: 1,
+      freeMode: true,
+      autoHeight: true,
+      grabCursor: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+      }
+    });
 
-  const swiper_02 = new Swiper ('.v-swiper-container', {
-    loop: true,
-    direction: 'vertical',
-    slidesPerView: 1,
-    freeMode: true,
-    autoHeight: true,
-    grabCursor: true,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false
-    }
-  });
-
+    this.loadingService.all_loadingBar_hide("cvSubWrap");
+  }, 1500);
  }
 
  // 발의 top three
   initiativeTopThree () {
     console.log('@@@ initiativeTopThree');
     this.initiativeTopList = [];
+
+    console.log("initiativeList >>> " , JSON.stringify(this.initiativeList));
 
     if (this.initiativeList.length > 0) {
       const sortList = this.initiativeList.sort(function(a,b){
@@ -131,6 +135,9 @@ export class CVotingMainComponent implements OnInit {
     } else if (res.stored_data[0].type === 'vote') {
       this.zone.run(() => this.voteList = res.stored_data);
     }
+
+    this.initiativeTopThree();
+    this.reviewTopThree();
   }
 
   // 심의 top three
@@ -184,7 +191,6 @@ export class CVotingMainComponent implements OnInit {
       }
 
       this.reviewList = sortList;
-       console.log("@@@ reviewTopList>>>>>>>> ", this.reviewTopList);
     }
 
   }

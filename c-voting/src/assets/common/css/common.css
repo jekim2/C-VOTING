@@ -93,8 +93,15 @@ textarea::-webkit-input-placeholder {color:#c2c2c2;}
 .cv_cont_loading:after {content:"loading contents"; position:absolute; left:50%; top:50%; width:25px; height:25px; margin:-12.5px 0 0 -12.5px; text-align:left; text-indent:-9999em; background:url("../images/loader.gif") no-repeat center center; background-size:100% auto;
 	-webkit-animation:loading 1s linear infinite; animation:loading 1s linear infinite; overflow:hidden;
 }
+.cv_cont_loading_all {position:relative; min-height:500px !important;}
+.cv_cont_loading_all:after {content:"loading contents"; position:absolute; left:50%; top:50%; width:25px; height:25px; margin:-12.5px 0 0 -12.5px; text-align:left; text-indent:-9999em; background:url("../images/loader.gif") no-repeat center center; background-size:100% auto;
+	-webkit-animation:loading 1s linear infinite; animation:loading 1s linear infinite; overflow:hidden;
+}
 .cv_cont_loading * {opacity:0;}
 .cv_cont_loading {height:120px;}
+
+.cv_cont_loading_all * {opacity:0;}
+.cv_cont_loading_all {height:120px;}
 .cv_search_result .cv_cont_loading {position:relative; min-height:450px !important; }
 
 /* main 영역 */

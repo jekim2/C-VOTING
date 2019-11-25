@@ -17,4 +17,13 @@ export class LoadingService {
     $('.' + classes).removeClass('cv_cont_loading');
   }
 
+  all_loadingBar_show(classes: string) {
+    $('.' + classes).addClass('cv_cont_loading_all');
+  }
+
+  // loadingbar hide
+  all_loadingBar_hide(classes: string) {
+    $('.' + classes).removeClass('cv_cont_loading_all');
+  }
+  
 }
