@@ -4,6 +4,7 @@ import Swiper from 'swiper';
 import { InitiativeList, ReviewList, VoteList } from '../../../app/module-shared/constants/common.const';
 import { ShareService } from '../../module-shared/services/share.service';
 import { LoadingService } from '../../module-shared/services/loading.service';
+import { PlatformLocation } from '@angular/common';
 
 declare var $: any;
 declare var cVotingUtil: any;
@@ -26,10 +27,17 @@ export class CVotingMainComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private location: PlatformLocation,
     private shareService: ShareService,
     private loadingService: LoadingService,
     private zone: NgZone
-  ) { window["CVotingMainComponent"] = this;  }
+  ) {
+    // prevent backbutton
+      this.location.onPopState(() => {
+        history.pushState(null, null, window.location.href);
+      });  
+      window["CVotingMainComponent"] = this;
+    }
 
   ngOnInit() {
 
@@ -59,7 +67,7 @@ export class CVotingMainComponent implements OnInit {
       if (!this.shareService.nullCheck(VoteList)) {
         localStorage.setItem('voteList' , JSON.stringify(VoteList));
         this.voteList = $.parseJSON(localStorage.getItem("voteList"));
-        console.log("voteList >>> " , JSON.stringify(this.voteList));
+        // console.log("voteList >>> " , JSON.stringify(this.voteList));
       }
   
       this.initiativeTopThree();
@@ -71,7 +79,7 @@ export class CVotingMainComponent implements OnInit {
  ngAfterViewInit() {
 
   setTimeout(() => {
-    
+
     const swiper = new Swiper('.swiper-container-01', {
       pagination: {
         el: '.swiper-pagination',
@@ -85,7 +93,7 @@ export class CVotingMainComponent implements OnInit {
       direction: 'horizontal',
       loop: true
     });
-  
+
     const swiper_02 = new Swiper ('.v-swiper-container', {
       loop: true,
       direction: 'vertical',
@@ -105,29 +113,24 @@ export class CVotingMainComponent implements OnInit {
 
  // 발의 top three
   initiativeTopThree () {
-    console.log('@@@ initiativeTopThree');
     this.initiativeTopList = [];
 
-    console.log("initiativeList >>> " , JSON.stringify(this.initiativeList));
+    // console.log("initiativeList >>> " , JSON.stringify(this.initiativeList));
 
     if (this.initiativeList.length > 0) {
       const sortList = this.initiativeList.sort(function(a,b){
         return b["recommandCnt"] - a["recommandCnt"];
       });
       for (let i = 0 ; i< sortList.length; i++) {
-        console.log("idx>>>>>>>> ", i);
         if ( i < 3) {
           this.initiativeTopList.push(sortList[i]);
         }
       }
     }
-    console.log('@@@ initiativeTopList >>> ' + JSON.stringify(this.initiativeTopList));
-
-
   }
 
   getData(res) {
-    console.log("@@@ res getData >>>>>>>>>>>>>> ", JSON.stringify(res));
+    // alert(JSON.stringify(res));
     if (res.stored_data[0].type === 'initiative') {
       this.zone.run(() => this.initiativeList = res.stored_data);
     } else if (res.stored_data[0].type === 'review') {
@@ -142,7 +145,7 @@ export class CVotingMainComponent implements OnInit {
 
   // 심의 top three
   reviewTopThree () {
-    console.log('@@@ reviewTopThree');
+    // console.log('@@@ reviewTopThree');
     this.reviewTopList = [];
 
     if (this.reviewList.length > 0) {
@@ -153,7 +156,7 @@ export class CVotingMainComponent implements OnInit {
       const dayList = this.reviewList.sort(function(a,b){
         return b["endDate"] - a["endDate"];
       });
-      console.log("dayList >>> ", JSON.stringify(dayList));
+      // console.log("dayList >>> ", JSON.stringify(dayList));
 
       if (dayList.length > 0 ) {
         const endDate =  dayList[0]["endDate"];
@@ -211,8 +214,6 @@ export class CVotingMainComponent implements OnInit {
   }
 
   onClickNavigateMenu (menu: string, data?: any) {
-    console.log('menu >>>> ' + menu);
-    console.log('data >>>> ' + data);
 
     this.selected_menu = menu;
 

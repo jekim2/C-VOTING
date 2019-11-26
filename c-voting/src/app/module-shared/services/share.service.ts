@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
+import { PlatformLocation } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class ShareService {
 
-  constructor() { }
+  constructor(private location: PlatformLocation, private router: Router) { }
 
   nullCheck (data: any) {
     let check: boolean;
@@ -27,5 +29,16 @@ export class ShareService {
   }
   return check;
 }
+
+  onClickBackButton (type?: string) {
+
+    const that = this;
+    if (this.nullCheck(type)) {
+      type = "main";
+    }
+    this.location.onPopState(() => {
+      this.router.navigate([type]);
+    });
+  }
 
 }

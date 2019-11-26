@@ -1,6 +1,7 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { ActivatedRoute, Router, Routes } from "@angular/router";
 import { ShareService } from '../../module-shared/services/share.service';
+import { PlatformLocation } from '@angular/common';
 
 declare var $: any;
 declare var cVotingUtil: any;
@@ -30,9 +31,17 @@ export class InitiativeComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
+    private location: PlatformLocation,
     private shareService: ShareService,
     private zone: NgZone
-  ) { window["InitiativeComponent"] = this; }
+  ) {
+    this.location.onPopState(() => {
+      console.log("back button!!!");
+      this.router.navigate(["/main"]);
+    });
+    // this.shareService.onClickBackButton("main");
+    window["InitiativeComponent"] = this;
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {

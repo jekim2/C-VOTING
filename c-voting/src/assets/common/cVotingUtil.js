@@ -60,7 +60,7 @@
             data : data
         };
         
-//        console.log('@@@ cVotingUtil.setStorage param >>> ' + JSON.stringify(param));
+    //    alert('@@@ cVotingUtil.setStorage param >>> ' + JSON.stringify(param));
         cVotingUtil.callPlugin("SET_SHARED_STORAGE", param);
     }
 
