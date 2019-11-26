@@ -65,6 +65,8 @@ export class InitiativeComponent implements OnInit {
     this.content = this.detail.content;
     this.recommandCnt = this.detail.recommandCnt;
     this.isAttach = this.detail.isAttach;
+
+    // alert(this.detailImg);
   }
 
   setData() {

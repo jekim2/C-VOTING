@@ -57,7 +57,7 @@
             storage_name : "default",
             list_name : listName,
             callback : getData_url, //콜백 받을 함수 명
-            data : data
+            data : JSON.parse(data)
         };
         
     //    alert('@@@ cVotingUtil.setStorage param >>> ' + JSON.stringify(param));

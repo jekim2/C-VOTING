@@ -10,7 +10,10 @@
               <span>{{ item.subject }}</span>
               <div>현재 찬 <em>{{ item.agreePercent }}%</em> 반 <em>{{ item.oppPercent }}%</em><p>{{ item.startDate  | dateFormat:'yyyy.mm.dd' }} ~ {{ item.endDate  | dateFormat:'yyyy.mm.dd' }}</p></div>
             </div>
-            <div class="cv_swiper"><img src ="assets/common/images/posts/{{ item.img }}"></div>
+            <div class="cv_swiper">
+              <img *ngIf="item.isAttach == 'Y'" src="file://{{ item.img }}" >
+              <img *ngIf="item.isAttach == 'N' || item.isAttach == '' || item.isAttach == undefined || item.isAttach == null" src ="assets/common/images/posts/{{ item.img }}">
+            </div>
           </li>
         </ul>
         <div class="swiper-pagination"></div>
@@ -51,7 +54,10 @@
             <div class="cv_info">
               <!-- notice image -->
               <div class="cv_img">
-                <span><img src = "assets/common/images/posts/{{ index.img }}" alt="filter image"></span>
+                <span>
+                  <img *ngIf="index.isAttach == 'Y'" src="file://{{ index.img }}" alt="filter image">
+                  <img *ngIf="index.isAttach == 'N' || index.isAttach == '' || index.isAttach == undefined || index.isAttach == null"  src="assets/common/images/posts/{{ index.img }}" alt="filter image">
+                </span>
               </div>
               <!-- //notice image -->
               <!-- notice contents -->
@@ -82,7 +88,10 @@
               <!-- notice image -->
               <div class="cv_img">
                 <div>D-<span>{{ item.dDay }}</span></div>
-                <span><img src = "assets/common/images/posts/{{ item.img }}" alt="filter image"></span>
+                <span>
+                  <img *ngIf="item.isAttach == 'Y'" src="file://{{ item.img }}" alt="filter image">
+                  <img *ngIf="item.isAttach == 'N' || item.isAttach == '' || item.isAttach == undefined || item.isAttach == null" src = "assets/common/images/posts/{{ item.img }}" alt="filter image">
+                </span>
               </div>
               <!-- //notice image -->
               <!-- notice contents -->
@@ -114,7 +123,10 @@
             <div class="cv_info">
               <!-- notice image -->
               <div class="cv_img">
-                <span><img src = "assets/common/images/posts/{{ index.img }}" alt="filter image"></span>
+                <span>
+                  <img *ngIf="isAttach == 'Y'" src="file://{{ index.img }}"  alt="filter image">
+                  <img *ngIf="index.isAttach == 'N' || index.isAttach == '' || index.isAttach == undefined || index.isAttach == null" src = "assets/common/images/posts/{{ index.img }}" alt="filter image">
+                </span>
               </div>
               <!-- //notice image -->
               <!-- notice contents -->
