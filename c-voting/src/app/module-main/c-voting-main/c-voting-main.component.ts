@@ -167,7 +167,11 @@ export class CVotingMainComponent implements OnInit {
         const eDate = new Date();
         const gapTime = sDate.getTime() - eDate.getTime();
 
-        this.reviewTitle.dDay = Math.ceil(gapTime / (60 * 1000 * 60 * 24));
+        this.reviewTitle.dDay = Math.ceil(gapTime / (60 * 1000 * 60 * 24)) + 1;
+
+        if ( this.reviewTitle.dDay <= 0) {
+          this.reviewTitle.dDay = 0;
+        }
         this.reviewTitle.title =  dayList[0].subject;
       }
 
@@ -186,7 +190,11 @@ export class CVotingMainComponent implements OnInit {
         const eDate = new Date();
         const gapTime = sDate.getTime() - eDate.getTime();
 
-        sortList[i]["dDay"] = Math.ceil(gapTime / (60 * 1000 * 60 * 24));
+        sortList[i]["dDay"] = Math.ceil(gapTime / (60 * 1000 * 60 * 24)) + 1;
+
+        if (sortList[i]["dDay"] <= 0) {
+          sortList[i]["dDay"] = 0;
+        }
         // Top3
         if ( i < 3) {
           this.reviewTopList.push(sortList[i]);
