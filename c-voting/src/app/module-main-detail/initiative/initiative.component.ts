@@ -126,8 +126,7 @@ export class InitiativeComponent implements OnInit {
 
     localStorage.setItem('recomCntChange', 'Y');   // 추천수 변경되었을 때 Y
 
-    //TODO 테스트용으로 100으로 수정. 원래 200임
-    if (that.recommandCnt >= 100) {
+    if (that.recommandCnt >= 200) {
       that.dataMoveToReivew(newList);
     } else {
 //      localStorage.setItem('initiativeList', JSON.stringify(newList));
