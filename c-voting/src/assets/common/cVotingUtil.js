@@ -44,7 +44,6 @@
     }
 
     cVotingUtil.setStorage = function(type, listName, data) {
-
         var getData_url = ""
 
         if (type === "initiative_regist") {
@@ -57,10 +56,9 @@
             storage_name : "default",
             list_name : listName,
             callback : getData_url, //콜백 받을 함수 명
-            data : JSON.parse(data)
+            data : $.parseJSON(data)
         };
         
-    //    alert('@@@ cVotingUtil.setStorage param >>> ' + JSON.stringify(param));
         cVotingUtil.callPlugin("SET_SHARED_STORAGE", param);
     }
 

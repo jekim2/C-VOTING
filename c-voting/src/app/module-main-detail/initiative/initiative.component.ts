@@ -99,7 +99,7 @@ export class InitiativeComponent implements OnInit {
     this.recommandCnt++;
 
 //    const initiativeList: any = JSON.parse(localStorage.getItem('initiativeList'));
-    const initiativeList: any = JSON.parse(this.initiativeList);
+    const initiativeList: any = this.initiativeList;
     const newList: any = [];
     const that = this;
 
@@ -113,12 +113,14 @@ export class InitiativeComponent implements OnInit {
 
       newList.push({
         idx : row.idx,
+        type : 'initiative',
         writer : row.writer,
         subject : row.subject,
         content : row.content,
         regDate : row.regDate,
         img : row.img,
-        recommandCnt : row.recommandCnt
+        recommandCnt : row.recommandCnt,
+        isAttach : 'N'
       });
     });
 
@@ -160,6 +162,7 @@ export class InitiativeComponent implements OnInit {
       content : this.content,
       regDate : this.regDate,
       img : this.detailImg,
+      isAttach : this.isAttach,
       recommandCnt : this.recommandCnt,
       totalPartiCnt : 1, // 총 참여수
       agreeCnt : 0,  // 찬성율
@@ -184,12 +187,14 @@ export class InitiativeComponent implements OnInit {
 
       newReviewList.push({
         idx : row.idx,
+        type : row.type,
         writer : row.writer,
         subject : row.subject,
         content : row.content,
         regDate : row.regDate,
         img : row.img,
-        recommandCnt : row.recommandCnt
+        recommandCnt : row.recommandCnt,
+        isAttach : row.isAttach
       });
     });
 
@@ -198,13 +203,10 @@ export class InitiativeComponent implements OnInit {
   }
 
   getDataCallback(res) {
-    console.log("@@@ getData List >>>>>>>>>>>>>> ", JSON.stringify(res.stored_data));
     if (res.stored_data[0].type === 'initiative') {
       this.zone.run(() => this.initiativeList = res.stored_data);
-      console.log('@@@ getDataCallback InitiativeList >>> ' + JSON.stringify(this.initiativeList));
     } else if (res.stored_data[0].type === 'review') {
       this.zone.run(() => this.reviewList = res.stored_data);
-      console.log('@@@ getDataCallback ReviewList >>> ' + JSON.stringify(this.reviewList));
     }
   }
 

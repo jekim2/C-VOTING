@@ -147,6 +147,7 @@ export class InitiativeRegistrationComponent implements OnInit {
       posts.isAttach = this.isAttach === true ? 'Y' : 'N';
       localInitiativeList.push({
         idx :  posts.idx,
+        type : 'initiative',
         writer :  posts.writer,
         subject :  posts.subject,
         content :  posts.content,
