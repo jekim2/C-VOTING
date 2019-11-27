@@ -36,10 +36,8 @@ export class InitiativeComponent implements OnInit {
     private zone: NgZone
   ) {
     this.location.onPopState(() => {
-      console.log("back button!!!");
-      this.router.navigate(["/main"]);
+      this.router.navigate(["/main"], { replaceUrl: true });
     });
-    // this.shareService.onClickBackButton("main");
     window["InitiativeComponent"] = this;
   }
 

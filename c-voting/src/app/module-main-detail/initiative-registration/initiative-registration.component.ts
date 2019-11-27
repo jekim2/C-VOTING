@@ -57,7 +57,7 @@ export class InitiativeRegistrationComponent implements OnInit {
         break;
     }
 
-    this.router.navigate([menu, param]);
+    this.router.navigate([menu, param] ,{ replaceUrl: true });
   }
 
   // 동의 체크박스

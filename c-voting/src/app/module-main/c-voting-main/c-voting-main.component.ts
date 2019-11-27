@@ -32,10 +32,6 @@ export class CVotingMainComponent implements OnInit {
     private loadingService: LoadingService,
     private zone: NgZone
   ) {
-    // prevent backbutton
-      this.location.onPopState(() => {
-        history.pushState(null, null, window.location.href);
-      });  
       window["CVotingMainComponent"] = this;
     }
 
@@ -76,40 +72,6 @@ export class CVotingMainComponent implements OnInit {
 
   }
 
- ngAfterViewInit() {
-
-  setTimeout(() => {
-
-    const swiper = new Swiper('.swiper-container-01', {
-      pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets'
-      },
-      speed: 400,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false
-      },
-      direction: 'horizontal',
-      loop: true
-    });
-
-    const swiper_02 = new Swiper ('.v-swiper-container', {
-      loop: true,
-      direction: 'vertical',
-      slidesPerView: 1,
-      freeMode: true,
-      autoHeight: true,
-      grabCursor: true,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false
-      }
-    });
-
-    this.loadingService.all_loadingBar_hide("cvSubWrap");
-  }, 1500);
- }
 
  // 발의 top three
   initiativeTopThree () {
@@ -127,6 +89,23 @@ export class CVotingMainComponent implements OnInit {
         }
       }
     }
+
+    const swiper = new Swiper('.swiper-container-01', {
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets'
+      },
+      speed: 400,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+      },
+      direction: 'horizontal',
+      loop: true
+    });
+
+    this.loadingService.all_loadingBar_hide("cvSubWrap");
+
   }
 
   getData(res) {
@@ -203,6 +182,19 @@ export class CVotingMainComponent implements OnInit {
 
       this.reviewList = sortList;
     }
+
+    const swiper_02 = new Swiper ('.v-swiper-container', {
+      loop: true,
+      direction: 'vertical',
+      slidesPerView: 1,
+      freeMode: true,
+      autoHeight: true,
+      grabCursor: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+      }
+    });
 
   }
 

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core'
 import { LoadingService } from '../../module-shared/services/loading.service';
 import { ShareService } from '../../module-shared/services/share.service';
 import { Router } from '@angular/router';
+import { PlatformLocation } from '@angular/common';
 
 declare var cVotingUtil: any;
 
@@ -24,8 +25,14 @@ export class CVotingSearchComponent implements OnInit {
     private router: Router,
     private zone: NgZone,
     private loading: LoadingService,
+    private location: PlatformLocation,
     private shareService: ShareService
-  ) {  window["CVotingSearchComponent"] = this; }
+  ) {
+    this.location.onPopState(() => {
+      this.router.navigate(["/main"], { replaceUrl: true });
+    });
+    window["CVotingSearchComponent"] = this; 
+    }
 
   ngOnInit() {
   }
