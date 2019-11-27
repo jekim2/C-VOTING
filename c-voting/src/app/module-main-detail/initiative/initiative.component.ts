@@ -126,7 +126,8 @@ export class InitiativeComponent implements OnInit {
 
     localStorage.setItem('recomCntChange', 'Y');   // 추천수 변경되었을 때 Y
 
-    if (that.recommandCnt >= 200) {
+    //TODO 테스트용으로 100으로 수정. 원래 200임
+    if (that.recommandCnt >= 100) {
       that.dataMoveToReivew(newList);
     } else {
 //      localStorage.setItem('initiativeList', JSON.stringify(newList));
@@ -137,7 +138,7 @@ export class InitiativeComponent implements OnInit {
   // 추천수 200 넘을시 심의 데이터로 이동
   dataMoveToReivew(newList: any) {
 //    const reviewList: any = JSON.parse(localStorage.getItem('reviewList'));
-    const reviewList: any = JSON.parse(this.reviewList);
+    const reviewList: any = this.reviewList;
     const today = new Date();
     const todayAfter = new Date();
     let startDate, endDate, year, month, day, yearAfter, yearMonth, yearDay = '';
@@ -175,6 +176,7 @@ export class InitiativeComponent implements OnInit {
       neutCmtList : []
     });
 //    localStorage.setItem('reviewList',  JSON.stringify(reviewList));
+    // 심의 데이터 재설정
     cVotingUtil.setStorage('initiative', 'ReviewList', JSON.stringify(reviewList));
 
     // 발의 리스트에서 삭제
@@ -199,6 +201,7 @@ export class InitiativeComponent implements OnInit {
     });
 
 //    localStorage.setItem('initiativeList', JSON.stringify(newReviewList));
+    // 발의 데이터 재설정
     cVotingUtil.setStorage('initiative', 'InitiativeList', JSON.stringify(newReviewList));
   }
 
