@@ -87,7 +87,7 @@ export class InitiativeComponent implements OnInit {
         break;
     }
 
-    this.router.navigate([menu]);
+    this.router.navigate([menu], { replaceUrl: true });
   }
 
   // 추천
@@ -104,6 +104,8 @@ export class InitiativeComponent implements OnInit {
     $(initiativeList).each(function(i) {
       const row = initiativeList[i];
 
+      // console.log("row >>>> " , JSON.stringify(row));
+
       if (row.idx === that.idx) {
         row.recommandCnt = that.recommandCnt;
         that.moveIndex = i;
@@ -118,7 +120,7 @@ export class InitiativeComponent implements OnInit {
         regDate : row.regDate,
         img : row.img,
         recommandCnt : row.recommandCnt,
-        isAttach : 'N'
+        isAttach : row.isAttach
       });
     });
 

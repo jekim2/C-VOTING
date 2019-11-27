@@ -124,7 +124,7 @@
               <!-- notice image -->
               <div class="cv_img">
                 <span>
-                  <img *ngIf="isAttach == 'Y'" src="file://{{ index.img }}"  alt="filter image">
+                  <img *ngIf="index.isAttach == 'Y'" src="file://{{ index.img }}"  alt="filter image">
                   <img *ngIf="index.isAttach == 'N' || index.isAttach == '' || index.isAttach == undefined || index.isAttach == null" src = "assets/common/images/posts/{{ index.img }}" alt="filter image">
                 </span>
               </div>

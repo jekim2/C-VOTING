@@ -112,6 +112,12 @@ export class InitiativeRegistrationComponent implements OnInit {
     if (this.isAttach) {
       img = this.imgPath;
     }
+
+    if (this.shareService.nullCheck(img)) {
+      img = "img_basic_02.jpg"
+    }
+
+
     const today = new Date();
     let regDate, year, month, day, hours, minutes = '';
     year = today.getFullYear().toString();
