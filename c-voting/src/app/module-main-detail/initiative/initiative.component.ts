@@ -126,8 +126,7 @@ export class InitiativeComponent implements OnInit {
 
     localStorage.setItem('recomCntChange', 'Y');   // 추천수 변경되었을 때 Y
 
-    //TODO: 테스트용
-    if (that.recommandCnt >= 100) {
+    if (that.recommandCnt >= 200) {
       that.dataMoveToReivew(newList);
     } else {
 //      localStorage.setItem('initiativeList', JSON.stringify(newList));
@@ -181,7 +180,6 @@ export class InitiativeComponent implements OnInit {
 
     // 발의 리스트에서 삭제
     newList.splice(this.moveIndex, 1);
-//    console.log('@@@ 이동한 idx 삭제한 newList >>> ' + JSON.stringify(newList));
     const newReviewList: any = [];
 
     $(newList).each(function(i) {
@@ -214,6 +212,6 @@ export class InitiativeComponent implements OnInit {
   }
 
   setDataCallback(res) {
-    console.log('@@@ setDataCallback response >>> ' + JSON.stringify(res));
+//    console.log('@@@ setDataCallback response >>> ' + JSON.stringify(res));
   }
 }

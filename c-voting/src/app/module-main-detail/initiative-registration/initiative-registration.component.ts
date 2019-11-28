@@ -114,7 +114,7 @@ export class InitiativeRegistrationComponent implements OnInit {
     }
 
     if (this.shareService.nullCheck(img)) {
-      img = "img_basic_02.jpg"
+      img = "img_basic_02.jpg";
     }
 
 
@@ -137,8 +137,6 @@ export class InitiativeRegistrationComponent implements OnInit {
       recommandCnt : 0,
       isAttach : 'N'    // 파일 첨부 기본값 N
     };
-
-    console.log('@@@ this.initiativeList >>>>>>>> ' + JSON.stringify(this.initiativeList));
 
     // 저장되어있는 발의 리스트 확인
     if (this.shareService.nullCheck(this.initiativeList)) {
@@ -171,15 +169,12 @@ export class InitiativeRegistrationComponent implements OnInit {
   }
 
   getDataCallback(res) {
-//  console.log("@@@ getData List >>>>>>>>>>>>>> ", JSON.stringify(res.stored_data));
-//  console.log('@@@ length @@@@@@@ >>> ' + res.stored_data.length);
 //    const list: any = res.stored_data;
     this.zone.run(() => this.initiativeList = res.stored_data);
-//    console.log('@@@ initiativeList last idx >>>> ' + this.initiativeList[6].subject);
   }
 
   setDataCallback(res) {
-    console.log('@@@ setDataCallback response >>> ' + JSON.stringify(res));
+//    console.log('@@@ setDataCallback response >>> ' + JSON.stringify(res));
   }
 
   // 갤러리 호출
@@ -189,7 +184,6 @@ export class InitiativeRegistrationComponent implements OnInit {
 
   // 갤러리 콜백
   setImgPath(res) {
-//    console.log('@@@ setImgPath res >>> ' + JSON.stringify(res));
     this.imgPath = res.image_path;
     this.imgName = res.image_path.split('/')[this.imgPath.split('/').length - 1];
     this.isAttach = true;

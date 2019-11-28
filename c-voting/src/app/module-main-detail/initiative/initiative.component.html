@@ -22,7 +22,7 @@
     <!-- //detail info -->
  
     <!-- detail image -->
-    <div [class.cv_none]="detailImg == ''" class="cv_column cv_detail_img">
+    <div [class.cv_none]="detailImg == '' || detailImg == 'img_basic_02.jpg'" class="cv_column cv_detail_img">
       <img *ngIf="isAttach == 'Y'" src="file://{{ detailImg }}" alt="detail image">
       <img *ngIf="isAttach == 'N' || isAttach == '' || isAttach == undefined || isAttach == null" src="assets/common/images/posts/{{ detailImg }}" alt="detail image">
     </div>
