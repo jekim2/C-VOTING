@@ -126,7 +126,8 @@ export class InitiativeComponent implements OnInit {
 
     localStorage.setItem('recomCntChange', 'Y');   // 추천수 변경되었을 때 Y
 
-    if (that.recommandCnt >= 200) {
+    //TODO: 테스트용
+    if (that.recommandCnt >= 100) {
       that.dataMoveToReivew(newList);
     } else {
 //      localStorage.setItem('initiativeList', JSON.stringify(newList));
@@ -143,13 +144,13 @@ export class InitiativeComponent implements OnInit {
     let startDate, endDate, year, month, day, yearAfter, yearMonth, yearDay = '';
     year = today.getFullYear().toString();
     month = (today.getMonth() + 1).toString();
-    day = today.getDate() < 10 ? "0" + today.getDate().toString() : today.getDate.toString();
+    day = today.getDate() < 10 ? "0" + today.getDate().toString() : today.getDate().toString();
     startDate = year + month + day;
 
     todayAfter.setDate(todayAfter.getDate() + 14);
     yearAfter = todayAfter.getFullYear().toString();
     yearMonth = (todayAfter.getMonth() + 1).toString();
-    yearDay = todayAfter.getDate() < 10 ? "0" + todayAfter.getDate().toString() : todayAfter.getDate.toString();
+    yearDay = todayAfter.getDate() < 10 ? "0" + todayAfter.getDate().toString() : todayAfter.getDate().toString();
     endDate = yearAfter + yearMonth + yearDay;
 
     localStorage.setItem('moveToReiview', 'Y'); // c-voting 메인에서 dateMove값이 Y 아닐때만 reviewList setItem안하도록.
@@ -164,7 +165,7 @@ export class InitiativeComponent implements OnInit {
       img : this.detailImg,
       isAttach : this.isAttach,
       recommandCnt : this.recommandCnt,
-      totalPartiCnt : 1, // 총 참여수
+      totalPartiCnt : 0, // 총 참여수
       agreeCnt : 0,  // 찬성율
       oppCnt : 0,    // 반대율
       neutCnt : 0,   // 기타율
