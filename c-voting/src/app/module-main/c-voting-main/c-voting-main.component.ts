@@ -156,20 +156,30 @@ export class CVotingMainComponent implements OnInit {
 
       for (let i = 0 ; i < sortList.length; i++) {
 
-        // 투표율
-        sortList[i]["agreePercent"] = Math.floor(( sortList[i]["agreeCnt"] /  sortList[i]["totalPartiCnt"]  * 100 ));
-        sortList[i]["oppPercent"] = Math.floor(( sortList[i]["oppCnt"] /  sortList[i]["totalPartiCnt"]  * 100 ));
-        sortList[i]["neutCnt"] === 0 ?  sortList[i]["neutPercent"] = 0 : sortList[i]["neutPercent"] =  100 - ( sortList[i]["agreePercent"] + sortList[i]["oppPercent"] );
-
-        if ( sortList[i]["agreePercent"] === 0 && sortList[i]["oppPercent"] === 0 &&  sortList[i]["neutCnt"] === 0) {
+        if (sortList[i]["totalPartiCnt"] === 0) {
+          sortList[i]["agreePercent"] = 0;
+          sortList[i]["oppPercent"] = 0;
+          sortList[i]["neutPercent"] = 0;
           sortList[i]["agreePercentWidth"] = 33.3;
           sortList[i]["oppPercentWidth"] = 33.3;
           sortList[i]["neutPercentWdith"] = 33.3;
         } else {
-          sortList[i]["agreePercentWidth"] = sortList[i]["agreePercent"];
-          sortList[i]["oppPercentWidth"] = sortList[i]["oppPercent"];
-          sortList[i]["neutPercentWdith"]  = sortList[i]["neutPercent"];
+          // 투표율
+          sortList[i]["agreePercent"] = Math.floor(( sortList[i]["agreeCnt"] /  sortList[i]["totalPartiCnt"]  * 100 ));
+          sortList[i]["oppPercent"] = Math.floor(( sortList[i]["oppCnt"] /  sortList[i]["totalPartiCnt"]  * 100 ));
+          sortList[i]["neutCnt"] === 0 ?  sortList[i]["neutPercent"] = 0 : sortList[i]["neutPercent"] =  100 - ( sortList[i]["agreePercent"] + sortList[i]["oppPercent"] );
+  
+          if ( sortList[i]["agreePercent"] === 0 && sortList[i]["oppPercent"] === 0 &&  sortList[i]["neutCnt"] === 0) {
+            sortList[i]["agreePercentWidth"] = 33.3;
+            sortList[i]["oppPercentWidth"] = 33.3;
+            sortList[i]["neutPercentWdith"] = 33.3;
+          } else {
+            sortList[i]["agreePercentWidth"] = sortList[i]["agreePercent"];
+            sortList[i]["oppPercentWidth"] = sortList[i]["oppPercent"];
+            sortList[i]["neutPercentWdith"]  = sortList[i]["neutPercent"];
+          }
         }
+
 
         // D-day
         const endDate =  dayList[i]["endDate"];
