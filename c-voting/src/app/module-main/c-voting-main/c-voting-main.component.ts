@@ -129,12 +129,16 @@ export class CVotingMainComponent implements OnInit {
 
     if (this.reviewList.length > 0) {
 
-      const sortList = this.reviewList.sort(function(a,b){
-        return b["totalPartiCnt"] - a["totalPartiCnt"];
-      });
       const dayList = this.reviewList.sort(function(a,b){
         return b["endDate"] - a["endDate"];
       });
+
+      const sortList = this.reviewList.sort(function(a,b){
+        return b["totalPartiCnt"] - a["totalPartiCnt"];
+      });
+
+
+      // console.log("sortList >>> " , JSON.stringify(sortList));
       // console.log("dayList >>> ", JSON.stringify(dayList));
 
       if (dayList.length > 0 ) {
@@ -155,6 +159,11 @@ export class CVotingMainComponent implements OnInit {
       }
 
       for (let i = 0 ; i < sortList.length; i++) {
+
+        // Top3
+        if ( i < 3) {
+          this.reviewTopList.push(sortList[i]);
+        }
 
         if (sortList[i]["totalPartiCnt"] === 0) {
           sortList[i]["agreePercent"] = 0;
@@ -195,10 +204,7 @@ export class CVotingMainComponent implements OnInit {
         if (sortList[i]["dDay"] <= 0) {
           sortList[i]["dDay"] = 0;
         }
-        // Top3
-        if ( i < 3) {
-          this.reviewTopList.push(sortList[i]);
-        }
+        
       }
 
       this.reviewList = sortList;
