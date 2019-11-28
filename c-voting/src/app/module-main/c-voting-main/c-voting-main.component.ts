@@ -129,13 +129,22 @@ export class CVotingMainComponent implements OnInit {
 
     if (this.reviewList.length > 0) {
 
+      
+      const sortList = this.reviewList.sort(function(a,b){
+        return b["totalPartiCnt"] - a["totalPartiCnt"];
+      });
       const dayList = this.reviewList.sort(function(a,b){
         return b["endDate"] - a["endDate"];
       });
 
-      const sortList = this.reviewList.sort(function(a,b){
-        return b["totalPartiCnt"] - a["totalPartiCnt"];
-      });
+      for (let i = 0 ; i < sortList.length; i++) {
+        // Top3
+        if ( i < 3) {
+          this.reviewTopList.push(sortList[i]);
+        }
+      }
+
+
 
 
       // console.log("sortList >>> " , JSON.stringify(sortList));
@@ -160,11 +169,7 @@ export class CVotingMainComponent implements OnInit {
 
       for (let i = 0 ; i < sortList.length; i++) {
 
-        // Top3
-        if ( i < 3) {
-          this.reviewTopList.push(sortList[i]);
-        }
-
+      
         if (sortList[i]["totalPartiCnt"] === 0) {
           sortList[i]["agreePercent"] = 0;
           sortList[i]["oppPercent"] = 0;
@@ -208,6 +213,8 @@ export class CVotingMainComponent implements OnInit {
       }
 
       this.reviewList = sortList;
+
+      console.log(JSON.stringify(this.reviewList));
     }
 
     const swiper_02 = new Swiper ('.v-swiper-container', {
