@@ -51,39 +51,38 @@ export class CVotingSearchComponent implements OnInit {
       const initive = JSON.parse(localStorage.getItem('initiativeList'));
       const review = JSON.parse(localStorage.getItem('reviewList'));
       const vote = JSON.parse(localStorage.getItem('voteList'));
-  
+
       if (!this.shareService.nullCheck(initive) && initive.length > 0) {
         searchDataList = initive;
       }
-  
+
       if (!this.shareService.nullCheck(review) && review.length > 0) {
         searchDataList = searchDataList.concat(review);
       }
-  
+
       if (!this.shareService.nullCheck(vote) && vote.length > 0) {
         searchDataList = searchDataList.concat(vote);
       }
-  
+
       if (searchDataList.length === 0) {
-        this.searchResult = [
+        this.zone.run(()=>this.searchResult = [
           {
             idx : 0,    // 글 번호
             subject : 'noResult',    // 제목
           }
-        ];
+        ]);
       } else {
-  
+
         this.searchResult =  searchDataList.filter( list => list.subject.match(this.searchInput.nativeElement.value));
-  
+
         if (this.searchResult.length === 0) {
-          this.searchResult = [
+          this.zone.run(()=> this.searchResult = [
             {
               idx : 0,    // 글 번호
               subject : 'noResult',    // 제목
             }
-          ];
+          ]);
         }
-  
       }
       setTimeout(() => {
         this.loading.loadingBar_hide('cvList01');
@@ -124,15 +123,13 @@ export class CVotingSearchComponent implements OnInit {
       searchDataList = searchDataList.concat(this.vote);
     }
 
-    console.log("@@@ searchDataList >>>>>>>>>>>>>> ", JSON.stringify(searchDataList));
-
     if (searchDataList.length === 0) {
-      this.searchResult = [
+      this.zone.run(()=> this.searchResult = [
         {
           idx : 0,    // 글 번호
           subject : 'noResult',    // 제목
         }
-      ];
+      ]);
       setTimeout(() => {
         this.loading.loadingBar_hide('cvList01');
       }, 300);
@@ -141,12 +138,12 @@ export class CVotingSearchComponent implements OnInit {
       this.zone.run(()=>this.searchResult =  searchDataList.filter( list => list.subject.match(this.searchInput.nativeElement.value)));
 
       if (this.searchResult.length === 0) {
-        this.searchResult = [
+        this.zone.run(()=>this.searchResult = [
           {
             idx : 0,    // 글 번호
             subject : 'noResult',    // 제목
           }
-        ];
+        ]);
       }
       setTimeout(() => {
         this.loading.loadingBar_hide('cvList01');
